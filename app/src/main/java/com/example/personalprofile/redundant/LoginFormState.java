@@ -1,4 +1,4 @@
-package com.example.personalprofile;
+package com.example.personalprofile.redundant;
 
 import androidx.annotation.Nullable;
 

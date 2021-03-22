@@ -9,10 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalProfile">
-        <activity android:name=".Read_my_reviews"></activity>
-        <activity android:name=".Create_Event" />
-        <activity android:name=".PersonalProfile_Organiser" />
-        <activity android:name=".PersonalProfile_User">
+        <activity android:name=".ReadReviewsActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ChatListActivity" />
+        <activity android:name=".HomePageActivity" />
+        <activity android:name=".CreateEventActivity" />
+        <activity android:name=".CreateAccountActivity" />
+        <activity android:name=".EventChatActivity" />
+        <activity android:name=".LikedEventsActivity" />
+        <activity android:name=".OrganiserProfileActivity" />
+        <activity android:name=".StudentProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

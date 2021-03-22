@@ -1,4 +1,6 @@
-package com.example.personalprofile;
+package com.example.personalprofile.redundant;
+
+import com.example.personalprofile.Result;
 
 import java.io.IOException;
 
@@ -7,7 +9,7 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    public Result<LoggedInUser> login(String username, String password) {
+    public Result login(String username, String password) {
 
         try {
             // TODO: handle loggedInUser authentication

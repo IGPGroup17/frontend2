@@ -1,10 +1,13 @@
-package com.example.personalprofile;
+package com.example.personalprofile.redundant;
 
 import android.util.Patterns;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.personalprofile.R;
+import com.example.personalprofile.Result;
 
 public class LoginViewModel extends ViewModel {
 
@@ -26,7 +29,7 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+        Result result = loginRepository.login(username, password);
 
         if (result instanceof Result.Success) {
             LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();

@@ -1,4 +1,4 @@
-package com.example.personalprofile;
+package com.example.personalprofile.redundant;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
