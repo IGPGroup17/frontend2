@@ -11,23 +11,17 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
+public class Organiser {
 
-    private String username;
+    private String profileId;
+
+    private String organisationName;
+
+    private String organisationDesc;
+
+    private String uniEmail;
 
     private String email;
 
-    private String realName;
-
-    private Integer age;
-
-    private String gender;
-
     private String universityName;
-
-    private String universityEmail;
-
-    private String year;
-
-    private String course;
 }
