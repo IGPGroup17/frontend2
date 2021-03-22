@@ -1,4 +1,6 @@
-package com.example.personalprofile;
+package com.example.personalprofile.redundant;
+
+import com.example.personalprofile.Result;
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -41,9 +43,9 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
-    public Result<LoggedInUser> login(String username, String password) {
+    public Result login(String username, String password) {
         // handle login
-        Result<LoggedInUser> result = dataSource.login(username, password);
+        Result result = dataSource.login(username, password);
         if (result instanceof Result.Success) {
             setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
         }

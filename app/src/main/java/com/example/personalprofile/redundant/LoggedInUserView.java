@@ -1,4 +1,4 @@
-package com.example.personalprofile;
+package com.example.personalprofile.redundant;
 
 /**
  * Class exposing authenticated user details to the UI.
