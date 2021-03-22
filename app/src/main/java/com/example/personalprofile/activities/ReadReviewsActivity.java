@@ -1,18 +1,20 @@
-package com.example.personalprofile;
+package com.example.personalprofile.activities;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.personalprofile.R;
 
-public class LikedEventsActivity extends AppCompatActivity {
+public class ReadReviewsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liked_events);
+        setContentView(R.layout.activity_read_my_reviews);
 
-        findViewById(R.id.homebutton).setOnClickListener(listener -> onClickHomeButton());
+        findViewById(R.id.homebutton).setOnClickListener(listener -> onClickHomeButton()); // home button
         findViewById(R.id.chatbutton).setOnClickListener(listener -> onClickChatButton());
         findViewById(R.id.personalprofile).setOnClickListener(listener -> onClickPersonalProfileButton());
     }
@@ -31,8 +33,4 @@ public class LikedEventsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, OrganiserProfileActivity.class);
         startActivity(intent);
     }
-
-
-
-
 }

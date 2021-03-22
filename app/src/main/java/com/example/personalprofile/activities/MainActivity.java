@@ -1,4 +1,4 @@
-package com.example.personalprofile;
+package com.example.personalprofile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.personalprofile.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.personalprofile;;
+package com.example.personalprofile.activities;;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.personalprofile.R;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -23,9 +25,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         password = findViewById(R.id.editTextPassword);
 
 
-        findViewById(R.id.create_account).setOnClickListener(v -> {
-            onClickCreateAccountButton();
-        });
+        findViewById(R.id.create_account).setOnClickListener(v -> onClickCreateAccountButton());
     }
 
     private void onClickCreateAccountButton() {

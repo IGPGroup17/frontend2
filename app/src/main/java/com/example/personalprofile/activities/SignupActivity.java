@@ -1,4 +1,4 @@
-package com.example.personalprofile;
+package com.example.personalprofile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.personalprofile.R;
 
 public class SignupActivity extends AppCompatActivity {
 

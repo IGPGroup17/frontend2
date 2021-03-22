@@ -1,4 +1,4 @@
-package com.example.personalprofile;
+package com.example.personalprofile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.personalprofile.R;
 
 
 public class StudentProfileActivity extends AppCompatActivity {

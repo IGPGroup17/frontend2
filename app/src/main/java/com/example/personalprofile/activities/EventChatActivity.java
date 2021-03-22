@@ -1,9 +1,11 @@
-package com.example.personalprofile;
+package com.example.personalprofile.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.personalprofile.R;
 
 public class EventChatActivity extends AppCompatActivity {
 

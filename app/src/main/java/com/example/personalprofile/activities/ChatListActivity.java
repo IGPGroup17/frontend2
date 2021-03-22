@@ -1,8 +1,10 @@
-package com.example.personalprofile;
+package com.example.personalprofile.activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.personalprofile.R;
 
 public class ChatListActivity extends AppCompatActivity {
 
