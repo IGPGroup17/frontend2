@@ -9,5 +9,17 @@ public class Student {
 
     private String email;
 
-    private String firstName;
+    private String realName;
+
+    private Integer age;
+
+    private String gender;
+
+    private String universityName;
+
+    private String universityEmail;
+
+    private String year;
+
+    private String course;
 }
