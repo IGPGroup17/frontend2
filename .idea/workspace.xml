@@ -27,11 +27,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="finished event modification repository">
+    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="Updated logging in">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/context/StudentCrudContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/context/StudentCrudContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/observer/NotificationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/observer/NotificationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/LoginActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,12 +208,12 @@
       <option name="project" value="LOCAL" />
       <updated>1616539951217</updated>
     </task>
-    <task id="LOCAL-00002" summary="added some models - probably have redundant information in them">
-      <created>1616438205269</created>
+    <task id="LOCAL-00002" summary="Updated logging in">
+      <created>1616540955523</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1616438205269</updated>
+      <updated>1616540955523</updated>
     </task>
     <task id="LOCAL-00003" summary="thinking im finna just commit this allatime">
       <created>1616447883366</created>
@@ -258,7 +257,7 @@
       <option name="project" value="LOCAL" />
       <updated>1616469398025</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,13 +283,14 @@
     <MESSAGE value="refactoring to make more generic" />
     <MESSAGE value="events working" />
     <MESSAGE value="finished event modification repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished event modification repository" />
+    <MESSAGE value="Updated logging in" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated logging in" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser" timestamp="1616540559901">
+    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser" timestamp="1616540858378">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1410@0.0.2560.1410" timestamp="1616540559901" />
+    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1410@0.0.2560.1410" timestamp="1616540858378" />
     <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616521773476">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
@@ -307,10 +307,10 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616521773476" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1616539952605">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1616540960868">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616539952605" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616540960868" />
     <state x="447" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616516904764">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>

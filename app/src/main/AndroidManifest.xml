@@ -23,8 +23,8 @@
         <activity android:name=".activities.EventChatActivity" />
         <activity android:name=".activities.LikedEventsActivity" />
         <activity android:name=".activities.OrganiserProfileActivity" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.StudentProfileActivity">
+        <activity android:name=".activities.StudentProfileActivity" />
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

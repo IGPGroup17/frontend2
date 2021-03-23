@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.personalprofile.AppUser;
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.models.Student;
@@ -63,6 +64,8 @@ public class LoginActivity extends ObservingActivity<Student> {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            AppUser.init(client, account);
+
             Log.d("Login", Objects.requireNonNull(account).getId());
         } catch (ApiException e) {
             e.printStackTrace();
