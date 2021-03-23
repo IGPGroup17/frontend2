@@ -15,6 +15,8 @@ public class VolleyQueue {
     private VolleyQueue(Context context) {
         this.queue = Volley.newRequestQueue(context.getApplicationContext());
         this.queue.start();
+
+        instance = this;
     }
 
     public static VolleyQueue init(Context context) {
