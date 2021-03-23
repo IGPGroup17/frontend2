@@ -4,42 +4,72 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.personalprofile.R;
+import com.example.personalprofile.models.Event;
+import com.example.personalprofile.repositories.EventSearchRepository;
+import com.example.personalprofile.repositories.event.EventRequestContext;
+import com.example.personalprofile.repositories.event.EventSortingComparatorFactory;
+import com.example.personalprofile.repositories.meta.observer.IRepositoryObserver;
 
-public class HomePageActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class HomePageActivity extends AppCompatActivity implements IRepositoryObserver<List<Event>> {
+
+    private Spinner sortSpinner;
+    private Spinner filterSpinner;
+    private EditText searchBox;
+
+    private EventSearchRepository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        this.repository = new EventSearchRepository();
+
         createFilterSpinner();
         createSortSpinner();
 
+        searchBox = findViewById(R.id.search_box);
+        findViewById(R.id.home_search_button).setOnClickListener(listener -> onClickSearchButton());
         findViewById(R.id.personalprofile).setOnClickListener(listener -> onClickPersonalProfileButton());
         findViewById(R.id.chatbutton).setOnClickListener(v -> onClickChatButton());
         findViewById(R.id.likedevents).setOnClickListener(v -> onClickLikedEventsButton());
     }
 
     private void createSortSpinner() {
-        Spinner mySpinner2 = (Spinner) findViewById(R.id.spinner2);
+        sortSpinner = findViewById(R.id.spinner2);
 
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<>(HomePageActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.sort));
-        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner2.setAdapter(myAdapter2);
+        ArrayAdapter<String> sortAdapter = new ArrayAdapter<>(HomePageActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.sort));
+        sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sortSpinner.setAdapter(sortAdapter);
     }
 
     private void createFilterSpinner() {
-        Spinner mySpinner1 = (Spinner) findViewById(R.id.spinner1);
+        filterSpinner = findViewById(R.id.spinner1);
 
-        ArrayAdapter<String> myAdapter1 = new ArrayAdapter<>(HomePageActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.filter));
-        myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner1.setAdapter(myAdapter1);
+        ArrayAdapter<String> filterAdapter = new ArrayAdapter<>(HomePageActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.filter));
+        filterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        filterSpinner.setAdapter(filterAdapter);
     }
 
+    private void onClickSearchButton() {
+        Log.d("clicked search button", "lord i want to die");
+        EventRequestContext options = EventRequestContext.builder()
+                .searchQuery(searchBox.getText().toString())
+                .build();
+        repository.sendRequest(this, options);
+    }
 
     public void onClickPersonalProfileButton() {
         Intent intent = new Intent(this, OrganiserProfileActivity.class);
@@ -54,6 +84,27 @@ public class HomePageActivity extends AppCompatActivity {
     public void onClickLikedEventsButton() {
         Intent intent = new Intent(this, LikedEventsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onNotification(NotificationContext<List<Event>> notificationContext) {
+        List<Event> events = new ArrayList<>(notificationContext.getData());
+        Log.d("matches", "" + events.size());
+
+        EventSortingComparatorFactory.Strategy sortStrategy = EventSortingComparatorFactory.getStrategyFrom(sortSpinner.getSelectedItem().toString());
+        sort(events, sortStrategy);
+
+
+        Toast.makeText(HomePageActivity.this, "Matches: " + notificationContext.getData().size(), Toast.LENGTH_LONG).show();
+    }
+
+    private void sort(List<Event> events, EventSortingComparatorFactory.Strategy sortStrategy) {
+        if (sortStrategy != null) {
+            Comparator<Event> comparator = sortStrategy.comparator();
+            if (comparator != null) {
+                Collections.sort(events, comparator);
+            }
+        }
     }
 }
 

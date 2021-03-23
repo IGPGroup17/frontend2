@@ -1,6 +1,7 @@
 package com.example.personalprofile.http;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,10 +19,15 @@ public class VolleyQueue {
     }
 
     public static VolleyQueue init(Context context) {
+        Log.d("VolleyQueue", "Initialised VolleyQueue");
         return new VolleyQueue(context);
     }
 
-    public static VolleyQueue getInstance() {
+    public static VolleyQueue getInstance(Context context) {
+        if (instance == null) {
+            instance = init(context);
+        }
+
         return instance;
     }
 
