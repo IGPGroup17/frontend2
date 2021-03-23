@@ -1,7 +1,5 @@
 package com.example.personalprofile.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,18 +9,19 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.personalprofile.R;
+import com.example.personalprofile.activities.meta.ObserverActivity;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.EventSearchRepository;
-import com.example.personalprofile.repositories.event.EventRequestContext;
-import com.example.personalprofile.repositories.event.EventSortingComparatorFactory;
-import com.example.personalprofile.repositories.meta.observer.IRepositoryObserver;
+import com.example.personalprofile.repositories.context.EventSearchContext;
+import com.example.personalprofile.repositories.eventsearch.EventSortingComparatorFactory;
+import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class HomePageActivity extends AppCompatActivity implements IRepositoryObserver<List<Event>> {
+public class HomePageActivity extends ObserverActivity<List<Event>> {
 
     private Spinner sortSpinner;
     private Spinner filterSpinner;
@@ -65,7 +64,7 @@ public class HomePageActivity extends AppCompatActivity implements IRepositoryOb
 
     private void onClickSearchButton() {
         Log.d("clicked search button", "lord i want to die");
-        EventRequestContext options = EventRequestContext.builder()
+        EventSearchContext options = EventSearchContext.builder()
                 .searchQuery(searchBox.getText().toString())
                 .build();
         repository.sendRequest(this, options);

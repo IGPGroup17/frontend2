@@ -1,4 +1,4 @@
-package com.example.personalprofile.repositories;
+package com.example.personalprofile.repositories.meta;
 
 public class RepositoryConstants {
 
