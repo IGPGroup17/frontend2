@@ -1,21 +1,29 @@
 package com.example.personalprofile.repositories.context;
 
+import com.example.personalprofile.models.Event;
+import com.example.personalprofile.models.RequestBodyEvent;
 import com.example.personalprofile.repositories.meta.RequestContext;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
-@Getter
-@AllArgsConstructor
-@Builder
-public class EventModificationContext implements RequestContext {
+public interface EventModificationContext extends RequestContext {
 
-    public enum Type {
-        CREATE,
-        DELETE,
-        UPDATE;
+    @Getter
+    @AllArgsConstructor(staticName = "of")
+    class Create implements EventModificationContext {
+        private final RequestBodyEvent event;
     }
 
-    private final Type type;
+    @Getter
+    @AllArgsConstructor(staticName = "of")
+    class Delete implements EventModificationContext {
+        private final String eventId;
+    }
+
+    @Getter
+    @AllArgsConstructor(staticName = "of")
+    class Update implements EventModificationContext {
+        private final Event event;
+    }
 }

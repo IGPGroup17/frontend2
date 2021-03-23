@@ -1,43 +1,43 @@
 package com.example.personalprofile.repositories;
 
+import android.app.Activity;
+
 import com.android.volley.Request;
-import com.example.personalprofile.activities.CreateEventActivity;
+import com.example.personalprofile.activities.meta.ObserverActivity;
 import com.example.personalprofile.http.VolleyQueue;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.context.EventModificationContext;
 import com.example.personalprofile.repositories.meta.AbstractRepository;
 
-public class EventModificationRepository extends AbstractRepository<CreateEventActivity, EventModificationContext, Event> {
+public class EventModificationRepository extends AbstractRepository<EventModificationContext, Event> {
 
     @Override
-    public void sendRequest(CreateEventActivity activity, EventModificationContext context) {
+    public void sendRequest(ObserverActivity<Event> activity, EventModificationContext context) {
+        attachObserver(activity);
+
         VolleyQueue queue = VolleyQueue.getInstance(activity.getApplicationContext());
-        switch (context.getType()) {
-            case CREATE:
-                queue.addRequest(buildCreateRequest());
-                break;
-            case DELETE:
-                queue.addRequest(buildDeleteRequest());
-                break;
-            case UPDATE:
-                queue.addRequest(buildUpdateRequest());
-                break;
-            default:
-                throw new IllegalStateException("invalid type!");
+        if (context instanceof EventModificationContext.Create) {
+            queue.addRequest(buildCreateRequest((EventModificationContext.Create) context));
+
+        } else if (context instanceof EventModificationContext.Update) {
+            queue.addRequest(buildUpdateRequest((EventModificationContext.Update) context));
+
+        } else if (context instanceof EventModificationContext.Delete) {
+            queue.addRequest(buildDeleteRequest((EventModificationContext.Delete) context));
         }
     }
 
-    private Request<?> buildCreateRequest() {
+    private Request<?> buildCreateRequest(EventModificationContext.Create context) {
         return null;
     }
 
 
-    private Request<?> buildDeleteRequest() {
+    private Request<?> buildDeleteRequest(EventModificationContext.Delete context) {
         return null;
     }
 
 
-    private Request<?> buildUpdateRequest() {
+    private Request<?> buildUpdateRequest(EventModificationContext.Update context) {
         return null;
     }
 }

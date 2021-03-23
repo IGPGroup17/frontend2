@@ -1,10 +1,12 @@
 package com.example.personalprofile.repositories;
 
+import android.app.Activity;
 import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.personalprofile.activities.HomePageActivity;
+import com.example.personalprofile.activities.meta.ObserverActivity;
 import com.example.personalprofile.http.VolleyQueue;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.eventsearch.ElasticSearchQueryAdapter;
@@ -20,9 +22,9 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class EventSearchRepository extends AbstractRepository<HomePageActivity, EventSearchContext, List<Event>> {
+public class EventSearchRepository extends AbstractRepository<EventSearchContext, List<Event>> {
 
-    public void sendRequest(HomePageActivity activity, EventSearchContext options) {
+    public void sendRequest(ObserverActivity<List<Event>> activity, EventSearchContext options) {
         attachObserver(activity);
         Request<?> request = buildRequest(options);
         VolleyQueue.getInstance(activity.getApplicationContext()).addRequest(request);
