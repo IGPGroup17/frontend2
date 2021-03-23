@@ -11,6 +11,7 @@ import com.example.personalprofile.repositories.meta.RepositoryConstants;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class EventModificationRepository extends AbstractRepository<EventModificationContext, Event> {
 
@@ -45,16 +46,23 @@ public class EventModificationRepository extends AbstractRepository<EventModific
     }
 
     private Request<?> buildCreateRequest(EventModificationContext.Create context) throws JSONException {
-        return null;
+        return new JsonObjectRequest(Request.Method.POST, RepositoryConstants.EVENTS_ENDPOINT, new JSONObject(GSON.toJson(context.getEvent())),
+                response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Event.class))),
+                Throwable::printStackTrace);
     }
 
 
     private Request<?> buildDeleteRequest(EventModificationContext.Delete context) {
-        return null;
+        String url = RepositoryConstants.EVENTS_ENDPOINT + context.getEventId();
+        return new JsonObjectRequest(Request.Method.DELETE, url, null,
+                response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Event.class))),
+                Throwable::printStackTrace);
     }
 
 
-    private Request<?> buildUpdateRequest(EventModificationContext.Update context) {
-        return null;
+    private Request<?> buildUpdateRequest(EventModificationContext.Update context) throws JSONException {
+        return new JsonObjectRequest(Request.Method.PUT, RepositoryConstants.EVENTS_ENDPOINT, new JSONObject(GSON.toJson(context.getEvent())),
+                response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Event.class))),
+                Throwable::printStackTrace);
     }
 }
