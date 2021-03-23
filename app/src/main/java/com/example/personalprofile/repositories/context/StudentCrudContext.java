@@ -13,4 +13,10 @@ public interface StudentCrudContext extends RequestContext {
     class Create implements StudentCrudContext {
         private final RequestBodyStudent student;
     }
+
+    @Getter
+    @AllArgsConstructor(staticName = "of")
+    class Read implements StudentCrudContext {
+        private final String studentId;
+    }
 }

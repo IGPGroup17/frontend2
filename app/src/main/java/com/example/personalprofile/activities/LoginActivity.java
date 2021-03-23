@@ -7,6 +7,9 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.personalprofile.R;
+import com.example.personalprofile.activities.meta.ObservingActivity;
+import com.example.personalprofile.models.Student;
+import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -18,7 +21,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.Objects;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends ObservingActivity<Student> {
 
     private final GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
@@ -60,11 +63,19 @@ public class LoginActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            Log.d("Login", new GsonBuilder().setPrettyPrinting().create().toJson(account));
             Log.d("Login", Objects.requireNonNull(account).getId());
         } catch (ApiException e) {
             e.printStackTrace();
         }
         Log.d("Login", "jesus christ your penis is gigantic");
+    }
+
+    @Override
+    public void onNotification(NotificationContext<Student> notificationContext) {
+        Intent intent = notificationContext.getMessage().equals("NOT FOUND") ?
+                new Intent(this, CreateAccountActivity.class) :
+                new Intent(this, HomePageActivity.class);
+
+        startActivity(intent);
     }
 }

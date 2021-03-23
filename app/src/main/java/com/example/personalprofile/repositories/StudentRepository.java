@@ -12,6 +12,7 @@ import com.example.personalprofile.models.requestbody.RequestBodyStudent;
 import com.example.personalprofile.repositories.context.StudentCrudContext;
 import com.example.personalprofile.repositories.meta.AbstractRepository;
 import com.example.personalprofile.repositories.meta.RepositoryConstants;
+import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,11 +40,24 @@ public class StudentRepository extends AbstractRepository<StudentCrudContext, St
         try {
             if (context instanceof StudentCrudContext.Create) {
                 queue.addRequest(buildCreateRequest(((StudentCrudContext.Create) context).getStudent()));
+            } else if (context instanceof StudentCrudContext.Read) {
+                queue.addRequest(buildReadRequest(((StudentCrudContext.Read) context).getStudentId()));
             }
 
         } catch (JSONException exception) {
             exception.printStackTrace();
         }
+    }
+
+    private Request<?> buildReadRequest(String studentId) {
+        String url = RepositoryConstants.STUDENT_ENDPOINT + studentId;
+        return new JsonObjectRequest(Request.Method.GET, url, null, response -> {
+            if (response.length() == 0) {
+                notifyObservers(NotificationContext.of("NOT FOUND", null));
+            } else {
+                notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Student.class)));
+            }
+        }, Throwable::printStackTrace);
     }
 
     private Request<?> buildCreateRequest(RequestBodyStudent student) throws JSONException {
