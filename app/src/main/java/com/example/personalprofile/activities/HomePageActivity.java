@@ -12,10 +12,14 @@ import android.widget.Toast;
 
 import com.example.personalprofile.R;
 import com.example.personalprofile.models.Event;
-import com.example.personalprofile.repositories.EventRepository;
+import com.example.personalprofile.repositories.EventSearchRepository;
 import com.example.personalprofile.repositories.event.EventRequestContext;
+import com.example.personalprofile.repositories.event.EventSortingComparatorFactory;
 import com.example.personalprofile.repositories.meta.observer.IRepositoryObserver;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class HomePageActivity extends AppCompatActivity implements IRepositoryObserver<List<Event>> {
@@ -24,14 +28,14 @@ public class HomePageActivity extends AppCompatActivity implements IRepositoryOb
     private Spinner filterSpinner;
     private EditText searchBox;
 
-    private EventRepository repository;
+    private EventSearchRepository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        this.repository = new EventRepository();
+        this.repository = new EventSearchRepository();
 
         createFilterSpinner();
         createSortSpinner();
@@ -84,8 +88,23 @@ public class HomePageActivity extends AppCompatActivity implements IRepositoryOb
 
     @Override
     public void onNotification(NotificationContext<List<Event>> notificationContext) {
-        Log.d("matches", "" + notificationContext.getData().size());
+        List<Event> events = new ArrayList<>(notificationContext.getData());
+        Log.d("matches", "" + events.size());
+
+        EventSortingComparatorFactory.Strategy sortStrategy = EventSortingComparatorFactory.getStrategyFrom(sortSpinner.getSelectedItem().toString());
+        sort(events, sortStrategy);
+
+
         Toast.makeText(HomePageActivity.this, "Matches: " + notificationContext.getData().size(), Toast.LENGTH_LONG).show();
+    }
+
+    private void sort(List<Event> events, EventSortingComparatorFactory.Strategy sortStrategy) {
+        if (sortStrategy != null) {
+            Comparator<Event> comparator = sortStrategy.comparator();
+            if (comparator != null) {
+                Collections.sort(events, comparator);
+            }
+        }
     }
 }
 

@@ -9,9 +9,9 @@ import java.util.Comparator;
  *
  * it's a factory thing that returns a different strategy based on input
  */
-public class EventSortStrategyFactory {
+public class EventSortingComparatorFactory {
 
-    public static EventSortStrategy getStrategyFrom(String name) {
+    public static Strategy getStrategyFrom(String name) {
         switch (name) {
             case "DATE":
                 return new Date();
@@ -20,15 +20,15 @@ public class EventSortStrategyFactory {
             case "POPULARITY":
                 return new Popularity();
             default:
-                throw new IllegalStateException("Invalid event sort strategy!");
+                return null;
         }
     }
 
-    interface EventSortStrategy {
+    public interface Strategy {
         Comparator<Event> comparator();
     }
 
-    public static class Location implements EventSortStrategy {
+    public static class Location implements Strategy {
 
         @Override
         public Comparator<Event> comparator() {
@@ -36,7 +36,7 @@ public class EventSortStrategyFactory {
         }
     }
 
-    public static class Date implements EventSortStrategy {
+    public static class Date implements Strategy {
 
         @Override
         public Comparator<Event> comparator() {
@@ -44,7 +44,7 @@ public class EventSortStrategyFactory {
         }
     }
 
-    public static class Popularity implements EventSortStrategy {
+    public static class Popularity implements Strategy {
 
         @Override
         public Comparator<Event> comparator() {

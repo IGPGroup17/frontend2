@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class EventRepository extends AbstractRepository<HomePageActivity, EventRequestContext, List<Event>> {
+public class EventSearchRepository extends AbstractRepository<HomePageActivity, EventRequestContext, List<Event>> {
 
     public void sendRequest(HomePageActivity activity, EventRequestContext options) {
         attachObserver(activity);
