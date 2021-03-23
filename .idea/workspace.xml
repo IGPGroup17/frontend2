@@ -27,12 +27,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="events working">
+    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="added sorting">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/EventModificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/context/EventModificationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/HomePageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/HomePageActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/EventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/EventSearchRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/EventSortStrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/EventSortStrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/EventSearchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/EventSearchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/RepositoryConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/RepositoryConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/ElasticSearchFieldsDescriptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/eventsearch/ElasticSearchFieldsDescriptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/ElasticSearchQueryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/eventsearch/ElasticSearchQueryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/ElasticSearchResponseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/eventsearch/ElasticSearchResponseAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/EventRequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/context/EventSearchContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/EventSortingComparatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/eventsearch/EventSortingComparatorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/observer/IRepositoryObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/observer/IRepositoryObserver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +101,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/ollie/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="memory.settings.postsync.last.time.stamp" value="1615291661018" />
     <property name="multi-representation-previewC:/Users/ollie/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_selected" value="Custom views" />
@@ -98,6 +114,11 @@
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Default Config" />
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="NotificationContext" />
+    </key>
   </component>
   <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -165,11 +186,11 @@
       </method>
     </configuration>
     <configuration name="ElasticSearchQueryAdapter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.personalprofile.repositories.event.ElasticSearchQueryAdapter" />
+      <option name="MAIN_CLASS_NAME" value="com.example.personalprofile.repositories.eventsearch.ElasticSearchQueryAdapter" />
       <module name="Personal_Profile.app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.personalprofile.repositories.*" />
+          <option name="PATTERN" value="com.example.personalprofile.repositories.meta.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -250,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616469398025</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added sorting">
+      <created>1616470544399</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1616470544399</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,25 +303,34 @@
     <MESSAGE value="kind of works?" />
     <MESSAGE value="refactoring to make more generic" />
     <MESSAGE value="events working" />
-    <option name="LAST_COMMIT_MESSAGE" value="events working" />
+    <MESSAGE value="added sorting" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sorting" />
   </component>
   <component name="WindowStateProjectService">
     <state x="459" y="203" width="1312" height="508" key="#PSD" timestamp="1616443395991">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="459" y="203" width="1312" height="508" key="#PSD/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616443395991" />
-    <state x="1085" y="420" key="#com.intellij.ide.util.MemberChooser" timestamp="1616467647620">
+    <state x="1085" y="420" key="#com.intellij.ide.util.MemberChooser" timestamp="1616470789678">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1085" y="420" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1410@0.0.2560.1410" timestamp="1616467647620" />
-    <state x="851" y="621" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1616466935666">
+    <state x="1085" y="420" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1410@0.0.2560.1410" timestamp="1616470789678" />
+    <state x="1009" y="494" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1616471362947">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="851" y="621" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1616466935666" />
+    <state x="1009" y="494" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1616471362947" />
+    <state x="851" y="621" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1616471345356">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="851" y="621" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1616471345356" />
     <state x="737" y="388" width="447" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1616442514472">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="737" y="388" width="447" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616442514472" />
+    <state x="992" y="496" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1616471363380">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="992" y="496" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1616471363380" />
     <state x="787" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1616467048800">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
@@ -310,44 +347,48 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="484" y="322" key="AndroidCreateResourceDirectoryDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615315286671" />
-    <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616469320672">
+    <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616471156806">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1616469320672" />
+    <state width="2517" height="396" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1616471156806" />
     <state width="938" height="281" key="GridCell.Tab.0.bottom/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445181544" />
-    <state width="2517" height="396" key="GridCell.Tab.0.center" timestamp="1616469320671">
+    <state width="2517" height="396" key="GridCell.Tab.0.center" timestamp="1616471156806">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1616469320671" />
+    <state width="2517" height="396" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1616471156806" />
     <state width="938" height="281" key="GridCell.Tab.0.center/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445181543" />
-    <state width="2517" height="396" key="GridCell.Tab.0.left" timestamp="1616469320671">
+    <state width="2517" height="396" key="GridCell.Tab.0.left" timestamp="1616471156806">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1616469320671" />
+    <state width="2517" height="396" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1616471156806" />
     <state width="938" height="281" key="GridCell.Tab.0.left/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445181543" />
-    <state width="2517" height="396" key="GridCell.Tab.0.right" timestamp="1616469320672">
+    <state width="2517" height="396" key="GridCell.Tab.0.right" timestamp="1616471156806">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616469320672" />
+    <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616471156806" />
     <state width="938" height="281" key="GridCell.Tab.0.right/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445181543" />
     <state x="615" y="222" key="SettingsEditor" timestamp="1616447200398">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="615" y="222" key="SettingsEditor/0.0.2560.1410@0.0.2560.1410" timestamp="1616447200398" />
     <state x="461" y="164" key="SettingsEditor/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616443336176" />
-    <state x="872" y="419" key="Vcs.Push.Dialog.v2" timestamp="1616469401129">
+    <state x="872" y="419" key="Vcs.Push.Dialog.v2" timestamp="1616470545858">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="872" y="419" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616469401129" />
+    <state x="872" y="419" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616470545858" />
     <state x="286" y="74" key="Vcs.Push.Dialog.v2/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445788143" />
+    <state x="1096" y="482" key="chooseDestDirectoryDialog" timestamp="1616471357573">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="1096" y="482" key="chooseDestDirectoryDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1616471357573" />
     <state x="717" y="348" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1616442058226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="717" y="348" key="com.intellij.testIntegration.createTest.CreateTestDialog/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616442058226" />
-    <state x="1010" y="459" key="extract.method.dialog" timestamp="1616416371178">
+    <state x="1010" y="459" key="extract.method.dialog" timestamp="1616470395180">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1010" y="459" key="extract.method.dialog/0.0.2560.1410@0.0.2560.1410" timestamp="1616416371178" />
+    <state x="1010" y="459" key="extract.method.dialog/0.0.2560.1410@0.0.2560.1410" timestamp="1616470395180" />
     <state x="936" y="335" key="run.anything.popup" timestamp="1616467099604">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>

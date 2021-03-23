@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.example.personalprofile.repositories.meta.observer.IObservable;
 import com.example.personalprofile.repositories.meta.observer.IRepositoryObserver;
+import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +22,7 @@ public abstract class AbstractRepository<T extends Activity, V extends RequestCo
     }
 
     @Override
-    public void notifyObservers(IRepositoryObserver.NotificationContext<M> context) {
+    public void notifyObservers(NotificationContext<M> context) {
         for (IRepositoryObserver<M> observer : observers) {
             observer.onNotification(context);
         }

@@ -13,9 +13,10 @@ import android.widget.Toast;
 import com.example.personalprofile.R;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.EventSearchRepository;
-import com.example.personalprofile.repositories.event.EventRequestContext;
-import com.example.personalprofile.repositories.event.EventSortingComparatorFactory;
+import com.example.personalprofile.repositories.context.EventSearchContext;
+import com.example.personalprofile.repositories.eventsearch.EventSortingComparatorFactory;
 import com.example.personalprofile.repositories.meta.observer.IRepositoryObserver;
+import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,7 +66,7 @@ public class HomePageActivity extends AppCompatActivity implements IRepositoryOb
 
     private void onClickSearchButton() {
         Log.d("clicked search button", "lord i want to die");
-        EventRequestContext options = EventRequestContext.builder()
+        EventSearchContext options = EventSearchContext.builder()
                 .searchQuery(searchBox.getText().toString())
                 .build();
         repository.sendRequest(this, options);
