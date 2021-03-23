@@ -16,6 +16,12 @@ public interface EventModificationContext extends RequestContext {
     }
 
     @Getter
+    @AllArgsConstructor
+    class Read implements EventModificationContext {
+        private final String eventId;
+    }
+
+    @Getter
     @AllArgsConstructor(staticName = "of")
     class Delete implements EventModificationContext {
         private final String eventId;
