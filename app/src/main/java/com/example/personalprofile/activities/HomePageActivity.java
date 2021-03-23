@@ -84,6 +84,7 @@ public class HomePageActivity extends AppCompatActivity implements IRepositoryOb
 
     @Override
     public void onNotification(NotificationContext<List<Event>> notificationContext) {
+        Log.d("matches", "" + notificationContext.getData().size());
         Toast.makeText(HomePageActivity.this, "Matches: " + notificationContext.getData().size(), Toast.LENGTH_LONG).show();
     }
 }

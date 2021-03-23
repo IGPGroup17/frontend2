@@ -27,10 +27,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="kind of works?">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/EventRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/observer/IObservable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/observer/IRepositoryObserver.java" afterDir="false" />
+    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="refactoring to make more generic">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/util/CastFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/util/JSONArrayUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -41,25 +40,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/HomePageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/HomePageActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/ElasticSearchQueryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/ElasticSearchQueryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/models/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/ElasticSearchResponseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/ElasticSearchResponseAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/EventRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/EventSearchOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/event/EventRequestContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/AbstractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/AbstractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/IRepositoryObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/RequestContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/meta/SimpleRepositoryObserver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create__event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create__event.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_event_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_event_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_profile__organiser.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_profile__organiser.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_profile_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_profile_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_read_my_reviews.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_read_my_reviews.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,8 +69,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -263,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616465794215</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactoring to make more generic">
+      <created>1616468089351</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616468089351</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,7 +275,8 @@
     <MESSAGE value="More work on ElasticSearch events querying" />
     <MESSAGE value="stupid ass mistake get your shit together" />
     <MESSAGE value="kind of works?" />
-    <option name="LAST_COMMIT_MESSAGE" value="kind of works?" />
+    <MESSAGE value="refactoring to make more generic" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring to make more generic" />
   </component>
   <component name="WindowStateProjectService">
     <state x="459" y="203" width="1312" height="508" key="#PSD" timestamp="1616443395991">
@@ -321,35 +311,35 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="484" y="322" key="AndroidCreateResourceDirectoryDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615315286671" />
-    <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616467048990">
+    <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616469215809">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1616467048990" />
+    <state width="2517" height="396" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1616469215809" />
     <state width="938" height="281" key="GridCell.Tab.0.bottom/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445181544" />
-    <state width="2517" height="396" key="GridCell.Tab.0.center" timestamp="1616467048990">
+    <state width="2517" height="396" key="GridCell.Tab.0.center" timestamp="1616469215809">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1616467048990" />
+    <state width="2517" height="396" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1616469215809" />
     <state width="938" height="281" key="GridCell.Tab.0.center/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445181543" />
-    <state width="2517" height="396" key="GridCell.Tab.0.left" timestamp="1616467048990">
+    <state width="2517" height="396" key="GridCell.Tab.0.left" timestamp="1616469215809">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1616467048990" />
+    <state width="2517" height="396" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1616469215809" />
     <state width="938" height="281" key="GridCell.Tab.0.left/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445181543" />
-    <state width="2517" height="396" key="GridCell.Tab.0.right" timestamp="1616467048990">
+    <state width="2517" height="396" key="GridCell.Tab.0.right" timestamp="1616469215809">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616467048990" />
+    <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616469215809" />
     <state width="938" height="281" key="GridCell.Tab.0.right/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445181543" />
     <state x="615" y="222" key="SettingsEditor" timestamp="1616447200398">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="615" y="222" key="SettingsEditor/0.0.2560.1410@0.0.2560.1410" timestamp="1616447200398" />
     <state x="461" y="164" key="SettingsEditor/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616443336176" />
-    <state x="872" y="419" key="Vcs.Push.Dialog.v2" timestamp="1616465795867">
+    <state x="872" y="419" key="Vcs.Push.Dialog.v2" timestamp="1616468090465">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="872" y="419" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616465795867" />
+    <state x="872" y="419" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616468090465" />
     <state x="286" y="74" key="Vcs.Push.Dialog.v2/1920.-3.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1616445788143" />
     <state x="717" y="348" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1616442058226">
       <screen x="0" y="0" width="1920" height="1040" />

@@ -15,6 +15,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Event {
 
+    private String eventId;
+
     private String name;
 
     private String description;
