@@ -6,16 +6,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ElasticSearchQueryAdapter implements IAdapter<EventSearchOptions, JSONObject> {
+public class ElasticSearchQueryAdapter implements IAdapter<EventRequestContext, JSONObject> {
 
     @Override
-    public JSONObject adapt(EventSearchOptions options) {
-        JSONObject matcher = asObject(EventSearchOptions.DESCRIPTOR.getQueryName(), adaptMustOptions(options));
+    public JSONObject adapt(EventRequestContext options) {
+        JSONObject matcher = asObject(EventRequestContext.DESCRIPTOR.getQueryName(), adaptMustOptions(options));
         JSONObject bool = asObject("bool", matcher);
         return asObject("query", bool);
     }
 
-    private JSONArray adaptMustOptions(EventSearchOptions options) {
+    private JSONArray adaptMustOptions(EventRequestContext options) {
         JSONArray arr = new JSONArray();
         arr.put(matchQuery("name", options.getSearchQuery()));
 

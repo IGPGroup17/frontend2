@@ -1,5 +1,7 @@
 package com.example.personalprofile.repositories.event;
 
+import com.example.personalprofile.repositories.meta.RequestContext;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor
-public class EventSearchOptions {
+public class EventRequestContext implements RequestContext {
 
     public static final ElasticSearchFieldsDescriptor DESCRIPTOR = ElasticSearchFieldsDescriptor.SHOULD;
 

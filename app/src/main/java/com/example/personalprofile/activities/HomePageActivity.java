@@ -8,15 +8,17 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.personalprofile.R;
-import com.example.personalprofile.repositories.event.ElasticSearchQueryAdapter;
-import com.example.personalprofile.repositories.event.EventRepository;
-import com.example.personalprofile.repositories.event.EventSearchOptions;
+import com.example.personalprofile.models.Event;
+import com.example.personalprofile.repositories.EventRepository;
+import com.example.personalprofile.repositories.event.EventRequestContext;
+import com.example.personalprofile.repositories.meta.observer.IRepositoryObserver;
 
-import org.json.JSONException;
+import java.util.List;
 
-public class HomePageActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity implements IRepositoryObserver<List<Event>> {
 
     private Spinner sortSpinner;
     private Spinner filterSpinner;
@@ -59,7 +61,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private void onClickSearchButton() {
         Log.d("clicked search button", "lord i want to die");
-        EventSearchOptions options = EventSearchOptions.builder()
+        EventRequestContext options = EventRequestContext.builder()
                 .searchQuery(searchBox.getText().toString())
                 .build();
         repository.sendRequest(this, options);
@@ -78,6 +80,11 @@ public class HomePageActivity extends AppCompatActivity {
     public void onClickLikedEventsButton() {
         Intent intent = new Intent(this, LikedEventsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onNotification(NotificationContext<List<Event>> notificationContext) {
+        Toast.makeText(HomePageActivity.this, "Matches: " + notificationContext.getData().size(), Toast.LENGTH_LONG).show();
     }
 }
 
