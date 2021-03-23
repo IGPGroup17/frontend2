@@ -16,7 +16,6 @@ public class StudentPalsApplication extends Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        VolleyQueue.getInstance().destroy();
     }
 
     private void init() {

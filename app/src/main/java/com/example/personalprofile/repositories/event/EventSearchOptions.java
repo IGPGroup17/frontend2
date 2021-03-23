@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EventSearchOptions {
 
-    public static final ElasticSearchFieldsDescriptor DESCRIPTOR = ElasticSearchFieldsDescriptor.MUST;
+    public static final ElasticSearchFieldsDescriptor DESCRIPTOR = ElasticSearchFieldsDescriptor.SHOULD;
 
     private String searchQuery;
 

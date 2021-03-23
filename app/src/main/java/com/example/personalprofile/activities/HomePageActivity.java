@@ -58,11 +58,11 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     private void onClickSearchButton() {
-        Log.d("sending request", "haha lmao you suck");
+        Log.d("clicked search button", "lord i want to die");
         EventSearchOptions options = EventSearchOptions.builder()
                 .searchQuery(searchBox.getText().toString())
                 .build();
-        repository.sendRequest(options);
+        repository.sendRequest(this, options);
     }
 
     public void onClickPersonalProfileButton() {

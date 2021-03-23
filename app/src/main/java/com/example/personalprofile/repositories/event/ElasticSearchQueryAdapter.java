@@ -2,28 +2,32 @@ package com.example.personalprofile.repositories.event;
 
 import com.example.personalprofile.util.IAdapter;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ElasticSearchQueryAdapter implements IAdapter<EventSearchOptions, JSONObject> {
 
     @Override
     public JSONObject adapt(EventSearchOptions options) {
-        JSONObject matcher = asObject(EventSearchOptions.DESCRIPTOR.getQueryName(), adaptOptions(options));
+        JSONObject matcher = asObject(EventSearchOptions.DESCRIPTOR.getQueryName(), adaptMustOptions(options));
         JSONObject bool = asObject("bool", matcher);
         return asObject("query", bool);
     }
 
-    private List<JSONObject> adaptOptions(EventSearchOptions options) {
-        List<JSONObject> list = new ArrayList<>();
-        list.add(matchQuery("name", options.getSearchQuery()));
-        list.add(matchQuery("isAlcoholFree", options.isAlcoholFreeEnabled()));
-        list.add(matchQuery("isVirtual", options.isVirtualEnabled()));
-        list.add(matchQuery("isInPerson", options.isInPersonEnabled()));
-        return list;
+    private JSONArray adaptMustOptions(EventSearchOptions options) {
+        JSONArray arr = new JSONArray();
+        arr.put(matchQuery("name", options.getSearchQuery()));
+
+        if (options.isAlcoholFreeEnabled())
+            arr.put(matchQuery("isAlcoholFree", options.isAlcoholFreeEnabled()));
+
+        if (options.isVirtualEnabled())
+            arr.put(matchQuery("isVirtual", options.isVirtualEnabled()));
+
+        if (options.isInPersonEnabled())
+            arr.put(matchQuery("isInPerson", options.isInPersonEnabled()));
+        return arr;
     }
 
     private JSONObject matchQuery(String field, Object value) {
