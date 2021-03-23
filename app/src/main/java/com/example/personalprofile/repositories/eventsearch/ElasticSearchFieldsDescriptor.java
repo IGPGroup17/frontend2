@@ -1,4 +1,4 @@
-package com.example.personalprofile.repositories.event;
+package com.example.personalprofile.repositories.eventsearch;
 
 import lombok.Getter;
 

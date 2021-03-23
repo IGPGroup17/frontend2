@@ -1,12 +1,8 @@
-package com.example.personalprofile.repositories.event;
-
-import android.util.Log;
+package com.example.personalprofile.repositories.eventsearch;
 
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.util.IAdapter;
 import com.example.personalprofile.util.JSONArrayUtil;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;

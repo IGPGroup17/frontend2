@@ -1,21 +1,22 @@
-package com.example.personalprofile.repositories.event;
+package com.example.personalprofile.repositories.eventsearch;
 
+import com.example.personalprofile.repositories.context.EventSearchContext;
 import com.example.personalprofile.util.IAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ElasticSearchQueryAdapter implements IAdapter<EventRequestContext, JSONObject> {
+public class ElasticSearchQueryAdapter implements IAdapter<EventSearchContext, JSONObject> {
 
     @Override
-    public JSONObject adapt(EventRequestContext options) {
-        JSONObject matcher = asObject(EventRequestContext.DESCRIPTOR.getQueryName(), adaptMustOptions(options));
+    public JSONObject adapt(EventSearchContext options) {
+        JSONObject matcher = asObject(EventSearchContext.DESCRIPTOR.getQueryName(), adaptMustOptions(options));
         JSONObject bool = asObject("bool", matcher);
         return asObject("query", bool);
     }
 
-    private JSONArray adaptMustOptions(EventRequestContext options) {
+    private JSONArray adaptMustOptions(EventSearchContext options) {
         JSONArray arr = new JSONArray();
         arr.put(matchQuery("name", options.getSearchQuery()));
 
