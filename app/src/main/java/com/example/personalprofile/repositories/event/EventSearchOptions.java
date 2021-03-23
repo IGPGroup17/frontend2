@@ -11,6 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EventSearchOptions {
 
+    public static final ElasticSearchFieldsDescriptor DESCRIPTOR = ElasticSearchFieldsDescriptor.MUST;
+
     private String searchQuery;
 
     private boolean isAlcoholFreeEnabled;

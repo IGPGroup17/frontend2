@@ -9,7 +9,7 @@ import java.util.Comparator;
  *
  * it's a factory thing that returns a different strategy based on input
  */
-public class EventSearchStrategyFactory {
+public class EventSortStrategyFactory {
 
     public static EventSortStrategy getStrategyFrom(String name) {
         switch (name) {
