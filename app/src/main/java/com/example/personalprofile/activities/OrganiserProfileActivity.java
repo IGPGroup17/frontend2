@@ -1,92 +1,45 @@
 package com.example.personalprofile.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.util.Log;
 
 import com.example.personalprofile.R;
+import com.example.personalprofile.activities.meta.ObservingActivity;
+import com.example.personalprofile.models.Student;
+import com.example.personalprofile.models.requestbody.RequestBodyStudent;
+import com.example.personalprofile.repositories.StudentRepository;
+import com.example.personalprofile.repositories.context.StudentCrudContext;
+import com.example.personalprofile.repositories.meta.observer.NotificationContext;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 
-public class OrganiserProfileActivity extends AppCompatActivity {
-     ImageButton homebutton;
+public class OrganiserProfileActivity extends ObservingActivity<Student> {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_profile__organiser);
-        Button button1;
-        button1 = (Button) findViewById(R.id.read_reviews);
 
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OrganiserProfileActivity.this, ReadReviewsActivity.class);
-                startActivity(intent);
-            }
+        findViewById(R.id.create_event).setOnClickListener(v -> openCreateEvent());
 
-        });
-        Button button2;
-        button2 = (Button) findViewById(R.id.create_event);
+        findViewById(R.id.homebutton).setOnClickListener(v -> openHomePage());
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OrganiserProfileActivity.this, CreateEventActivity.class);
-                startActivity(intent);
-            }
+        findViewById(R.id.update_event).setOnClickListener(v -> openCreateEvent());
 
-        });
+        findViewById(R.id.read_reviews).setOnClickListener(v -> openReadReviews());
 
-        ImageButton homebutton;
-        homebutton = (ImageButton) findViewById(R.id.homebutton);
-        homebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openHomePage();
-            }
-        });
+        findViewById(R.id.likedevents).setOnClickListener(v -> openLikedEvents());
 
-        Button update;
-        update = (Button) findViewById(R.id.update_event);
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openCreateEvent();
-            }
-        });
+        findViewById(R.id.chatbutton).setOnClickListener(v -> openChatPage());
 
-        Button reviews;
-        reviews = (Button) findViewById(R.id.read_reviews);
-        reviews.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               openReadReviews();
-            }
+        findViewById(R.id.delete_account).setOnClickListener(v -> openLoginPage());
+    }
 
-        });
-
-        ImageButton liked;
-        liked = (ImageButton) findViewById(R.id.likedevents);
-        liked.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpenLikedEvents();
-            }
-        });
-
-        ImageButton chat;
-        chat = (ImageButton) findViewById(R.id.chatbutton);
-        chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openChatPage();
-            }
-        });
+    public void openLoginPage() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     public void openHomePage() {
@@ -100,11 +53,12 @@ public class OrganiserProfileActivity extends AppCompatActivity {
     }
 
     public void openReadReviews() {
-        Intent intent = new Intent(this, ReadReviewsActivity.class);
-        startActivity(intent);
+        StudentRepository repository = StudentRepository.getInstance();
+
+        repository.sendRequest(this, StudentCrudContext.Create.of(RequestBodyStudent.builder().studentId("1").age(1).course("penis").email("more penis").gender("helicopter").realName("i love penis").universityEmail("huge penises").universityName("wow you suck penis").username("penis").year(1).build()));
     }
 
-    public void OpenLikedEvents() {
+    public void openLikedEvents() {
         Intent intent = new Intent(this, ReadReviewsActivity.class);
         startActivity(intent);
     }
@@ -112,6 +66,11 @@ public class OrganiserProfileActivity extends AppCompatActivity {
     public void openChatPage() {
         Intent intent = new Intent(this, EventChatActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onNotification(NotificationContext<Student> notificationContext) {
+        Log.d("organiser profile", new GsonBuilder().setPrettyPrinting().create().toJson(notificationContext.getData()));
     }
 }
 

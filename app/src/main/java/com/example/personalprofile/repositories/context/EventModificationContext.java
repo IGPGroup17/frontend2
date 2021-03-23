@@ -1,7 +1,7 @@
 package com.example.personalprofile.repositories.context;
 
 import com.example.personalprofile.models.Event;
-import com.example.personalprofile.models.RequestBodyEvent;
+import com.example.personalprofile.models.requestbody.RequestBodyEvent;
 import com.example.personalprofile.repositories.meta.RequestContext;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ public interface EventModificationContext extends RequestContext {
     }
 
     @Getter
-    @AllArgsConstructor
+    @AllArgsConstructor(staticName = "of")
     class Read implements EventModificationContext {
         private final String eventId;
     }

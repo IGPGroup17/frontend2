@@ -20,6 +20,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.personalprofile.R;
+import com.google.android.gms.common.SignInButton;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,9 +29,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+
+        SignInButton signInButton = findViewById(R.id.sign_in_button);
+        signInButton.setSize(SignInButton.SIZE_STANDARD);
 
         final EditText usernameEditText = findViewById(R.id.email);
         final EditText passwordEditText = findViewById(R.id.password);

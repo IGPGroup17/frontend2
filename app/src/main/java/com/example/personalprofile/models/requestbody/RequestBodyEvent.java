@@ -1,4 +1,4 @@
-package com.example.personalprofile.models;
+package com.example.personalprofile.models.requestbody;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

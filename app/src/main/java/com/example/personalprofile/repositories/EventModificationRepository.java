@@ -2,7 +2,7 @@ package com.example.personalprofile.repositories;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.personalprofile.activities.meta.ObserverActivity;
+import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.http.VolleyQueue;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.context.EventModificationContext;
@@ -11,12 +11,11 @@ import com.example.personalprofile.repositories.meta.RepositoryConstants;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 public class EventModificationRepository extends AbstractRepository<EventModificationContext, Event> {
 
     @Override
-    public void sendRequest(ObserverActivity<Event> activity, EventModificationContext context) {
+    public void sendRequest(ObservingActivity<Event> activity, EventModificationContext context) {
         attachObserver(activity);
 
         VolleyQueue queue = VolleyQueue.getInstance(activity.getApplicationContext());

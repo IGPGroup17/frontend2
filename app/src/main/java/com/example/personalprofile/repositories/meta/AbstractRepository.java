@@ -1,8 +1,6 @@
 package com.example.personalprofile.repositories.meta;
 
-import android.app.Activity;
-
-import com.example.personalprofile.activities.meta.ObserverActivity;
+import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.repositories.meta.observer.IObservable;
 import com.example.personalprofile.repositories.meta.observer.IRepositoryObserver;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
@@ -18,7 +16,7 @@ public abstract class AbstractRepository<V extends RequestContext, M> implements
 
     protected static final Gson GSON = new Gson();
 
-    public abstract void sendRequest(ObserverActivity<M> activity, V context);
+    public abstract void sendRequest(ObservingActivity<M> activity, V context);
 
     @Override
     public void attachObserver(IRepositoryObserver<M> observer) {
