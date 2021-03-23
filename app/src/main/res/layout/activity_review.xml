@@ -85,7 +85,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="280dp"
-            android:hint="I liked the event..." />
+            android:hint="I liked the event..."
+            android:inputType="textLongMessage" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
