@@ -42,6 +42,11 @@ public class LoginActivity extends ObservingActivity<Student> {
         this.client = GoogleSignIn.getClient(this, googleSignInOptions);
         this.account = GoogleSignIn.getLastSignedInAccount(this);
 
+        findViewById(R.id.login).setOnClickListener(l -> {
+            Intent intent = new Intent(this, HomePageActivity.class);
+            startActivity(intent);
+        });
+
         SignInButton button = findViewById(R.id.sign_in_button);
 
         button.setOnClickListener(listener -> onClickGoogleSignIn());
