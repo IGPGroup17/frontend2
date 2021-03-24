@@ -27,9 +27,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="now redirects you to createaccount">
+    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="Added ability to get to home page without signing up (to remove later)">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/CreateEventActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/CreateEventActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_page.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,12 +244,12 @@
       <option name="project" value="LOCAL" />
       <updated>1616595484115</updated>
     </task>
-    <task id="LOCAL-00006" summary="kind of works?">
-      <created>1616465794215</created>
+    <task id="LOCAL-00006" summary="Added ability to get to home page without signing up (to remove later)">
+      <created>1616609797951</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1616465794215</updated>
+      <updated>1616609797951</updated>
     </task>
     <task id="LOCAL-00007" summary="refactoring to make more generic">
       <created>1616468089351</created>
@@ -256,7 +265,7 @@
       <option name="project" value="LOCAL" />
       <updated>1616469398025</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,33 +295,34 @@
     <MESSAGE value="made default startup on login" />
     <MESSAGE value="started work on recyclerview" />
     <MESSAGE value="now redirects you to createaccount" />
-    <option name="LAST_COMMIT_MESSAGE" value="now redirects you to createaccount" />
+    <MESSAGE value="Added ability to get to home page without signing up (to remove later)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ability to get to home page without signing up (to remove later)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser" timestamp="1616591836190">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1410@0.0.2560.1410" timestamp="1616591836190" />
-    <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616595283041">
+    <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616610431696">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1616595283041" />
-    <state width="2517" height="396" key="GridCell.Tab.0.center" timestamp="1616595283041">
+    <state width="2517" height="396" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1616610431696" />
+    <state width="2517" height="396" key="GridCell.Tab.0.center" timestamp="1616610431696">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1616595283041" />
-    <state width="2517" height="396" key="GridCell.Tab.0.left" timestamp="1616595283040">
+    <state width="2517" height="396" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1616610431696" />
+    <state width="2517" height="396" key="GridCell.Tab.0.left" timestamp="1616610431696">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1616595283040" />
-    <state width="2517" height="396" key="GridCell.Tab.0.right" timestamp="1616595283041">
+    <state width="2517" height="396" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1616610431696" />
+    <state width="2517" height="396" key="GridCell.Tab.0.right" timestamp="1616610431696">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616595283041" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1616595486181">
+    <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616610431696" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1616609799568">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616595486181" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616609799568" />
     <state x="447" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616516904764">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
