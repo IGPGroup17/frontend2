@@ -15,6 +15,20 @@ import org.json.JSONObject;
 
 public class EventModificationRepository extends AbstractRepository<EventModificationContext, Event> {
 
+    private static EventModificationRepository instance;
+
+    // private to stop init outside of class - use getInstance();
+    private EventModificationRepository() {
+
+    }
+
+    public static EventModificationRepository getInstance() {
+        if (instance == null) {
+            instance = new EventModificationRepository();
+        }
+        return instance;
+    }
+
     @Override
     public void sendRequest(ObservingActivity<Event> activity, EventModificationContext context) {
         attachObserver(activity);

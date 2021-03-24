@@ -27,25 +27,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="Added ability to get to home page without signing up (to remove later)">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="Started CreateEventActivity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/CreateEventActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/CreateEventActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/EventModificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/EventModificationRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -251,12 +243,12 @@
       <option name="project" value="LOCAL" />
       <updated>1616609797951</updated>
     </task>
-    <task id="LOCAL-00007" summary="refactoring to make more generic">
-      <created>1616468089351</created>
+    <task id="LOCAL-00007" summary="Started CreateEventActivity">
+      <created>1616616568530</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1616468089351</updated>
+      <updated>1616616568530</updated>
     </task>
     <task id="LOCAL-00008" summary="events working">
       <created>1616469398025</created>
@@ -265,7 +257,7 @@
       <option name="project" value="LOCAL" />
       <updated>1616469398025</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -296,13 +288,14 @@
     <MESSAGE value="started work on recyclerview" />
     <MESSAGE value="now redirects you to createaccount" />
     <MESSAGE value="Added ability to get to home page without signing up (to remove later)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ability to get to home page without signing up (to remove later)" />
+    <MESSAGE value="Started CreateEventActivity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started CreateEventActivity" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser" timestamp="1616591836190">
+    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser" timestamp="1616617038659">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1410@0.0.2560.1410" timestamp="1616591836190" />
+    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1410@0.0.2560.1410" timestamp="1616617038659" />
     <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616610431696">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
@@ -319,10 +312,10 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616610431696" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1616609799568">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1616616570479">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616609799568" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616616570479" />
     <state x="447" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616516904764">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
