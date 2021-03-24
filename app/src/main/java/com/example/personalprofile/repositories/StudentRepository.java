@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.http.VolleyQueue;
@@ -51,13 +52,18 @@ public class StudentRepository extends AbstractRepository<StudentCrudContext, St
 
     private Request<?> buildReadRequest(String studentId) {
         String url = RepositoryConstants.STUDENT_ENDPOINT + studentId;
-        return new JsonObjectRequest(Request.Method.GET, url, null, response -> {
-            if (response.length() == 0) {
-                notifyObservers(NotificationContext.of("NOT FOUND", null));
-            } else {
-                notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Student.class)));
-            }
-        }, Throwable::printStackTrace);
+        return new JsonObjectRequest(Request.Method.GET, url, null,
+                response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Student.class))),
+                this::handleError);
+    }
+
+    private void handleError(VolleyError error) {
+        int statusCode = error.networkResponse.statusCode;
+        if (statusCode == 404) {
+            notifyObservers(NotificationContext.of("NOT FOUND", null));
+        } else {
+            error.printStackTrace();
+        }
     }
 
     private Request<?> buildCreateRequest(RequestBodyStudent student) throws JSONException {

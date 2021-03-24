@@ -10,6 +10,8 @@ import com.example.personalprofile.AppUser;
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.models.Student;
+import com.example.personalprofile.repositories.StudentRepository;
+import com.example.personalprofile.repositories.context.StudentCrudContext;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -66,15 +68,17 @@ public class LoginActivity extends ObservingActivity<Student> {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             AppUser.init(client, account);
 
+            StudentRepository.getInstance().sendRequest(this, StudentCrudContext.Read.of(Objects.requireNonNull(account).getId()));
+
             Log.d("Login", Objects.requireNonNull(account).getId());
         } catch (ApiException e) {
             e.printStackTrace();
         }
-        Log.d("Login", "jesus christ your penis is gigantic");
     }
 
     @Override
     public void onNotification(NotificationContext<Student> notificationContext) {
+        Log.d(notificationContext.getMessage(), new GsonBuilder().setPrettyPrinting().create().toJson(notificationContext.getData()));
         Intent intent = notificationContext.getMessage().equals("NOT FOUND") ?
                 new Intent(this, CreateAccountActivity.class) :
                 new Intent(this, HomePageActivity.class);
