@@ -24,7 +24,9 @@ import java.util.List;
 public class HomePageActivity extends ObservingActivity<List<Event>> {
 
     private Spinner sortSpinner;
+
     private Spinner filterSpinner;
+
     private EditText searchBox;
 
     private EventSearchRepository repository;
