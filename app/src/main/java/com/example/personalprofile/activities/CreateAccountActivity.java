@@ -26,7 +26,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         gender = findViewById(R.id.editTextGender);
         username = findViewById(R.id.editTextPersonName);
 
-        findViewById(R.id.create_account).setOnClickListener(v -> onClickNextButton());
+        findViewById(R.id.create_account_next).setOnClickListener(v -> onClickNextButton());
     }
 
     private void onClickNextButton() {

@@ -13,7 +13,8 @@ public class AppUser {
 
     private static AppUser instance;
 
-    private final RequestBodyStudent initialSignupStudent;
+    @Getter
+    private final RequestBodyStudent initialSignUpStudent;
 
     @Getter
     private final GoogleSignInAccount account;
@@ -23,7 +24,7 @@ public class AppUser {
     private AppUser(GoogleSignInClient client, GoogleSignInAccount account) {
         this.client = client;
         this.account = account;
-        this.initialSignupStudent = createInitialSignupStudent(account);
+        this.initialSignUpStudent = createInitialSignupStudent(account);
 
     }
 
@@ -35,17 +36,17 @@ public class AppUser {
     }
 
     public void assignInitialPage(String username, Integer age, String gender, String name) {
-        initialSignupStudent.setUsername(username);
-        initialSignupStudent.setAge(age);
-        initialSignupStudent.setGender(gender);
-        initialSignupStudent.setRealName(name);
+        initialSignUpStudent.setUsername(username);
+        initialSignUpStudent.setAge(age);
+        initialSignUpStudent.setGender(gender);
+        initialSignUpStudent.setRealName(name);
     }
 
     public void assignUniPage(String uniName, String uniEmail, Integer year, String course) {
-        initialSignupStudent.setUniversityName(uniName);
-        initialSignupStudent.setUniversityEmail(uniEmail);
-        initialSignupStudent.setYear(year);
-        initialSignupStudent.setCourse(course);
+        initialSignUpStudent.setUniversityName(uniName);
+        initialSignUpStudent.setUniversityEmail(uniEmail);
+        initialSignUpStudent.setYear(year);
+        initialSignUpStudent.setCourse(course);
     }
 
     public static void init(GoogleSignInClient client, GoogleSignInAccount account) {

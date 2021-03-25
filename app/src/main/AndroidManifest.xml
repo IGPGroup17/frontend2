@@ -24,6 +24,8 @@
         <activity android:name=".activities.LikedEventsActivity" />
         <activity android:name=".activities.OrganiserProfileActivity" />
         <activity android:name=".activities.StudentProfileActivity" />
+        <activity android:name=".activities.CreateAccountActivity2" />
+        <activity android:name=".activities.CreateEventActivity2" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

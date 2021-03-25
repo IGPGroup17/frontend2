@@ -73,7 +73,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/create_account"
+        android:id="@+id/create_account_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

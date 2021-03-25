@@ -85,6 +85,8 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
         Log.d("event", new GsonBuilder().setPrettyPrinting().create().toJson(event));
 
+        cardPositionToEventIdMap.put(position, event.getEventId());
+
         String goingText = event.getGoingUsersIDs().size() + " Going";
         String interestedText = event.getInterestedUsersIDs().size() + " Interested";
 

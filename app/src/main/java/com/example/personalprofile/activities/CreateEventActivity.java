@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.example.personalprofile.CachedEvent;
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.models.Event;
@@ -47,10 +48,8 @@ public class CreateEventActivity extends ObservingActivity<Event> {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__event);
 
-        name = (EditText) findViewById(R.id.editEventName);
-        description = (EditText) findViewById(R.id.editDescription);
-        date = (EditText) findViewById(R.id.editTextDate);
-        time = (EditText) findViewById(R.id.editTextTime);
+        name = findViewById(R.id.editEventName);
+        description = findViewById(R.id.editDescription);
 
         isAlcoholFree = findViewById(R.id.alcoholFreeCheck);
         isAlcoholFree.setOnClickListener(v -> alcoholFree.set(isAlcoholFree.isChecked()));
@@ -61,32 +60,25 @@ public class CreateEventActivity extends ObservingActivity<Event> {
         isVirtual = findViewById(R.id.onlineCheck);
         isVirtual.setOnClickListener(v -> online.set(isVirtual.isChecked()));
 
-        findViewById(R.id.save).setOnClickListener(listener -> onClickSaveButton());
 
+        findViewById(R.id.create_event_next).setOnClickListener(listener -> onClickNextButton());
         findViewById(R.id.discard).setOnClickListener(listener -> onClickDiscardButton());
         findViewById(R.id.likedevents).setOnClickListener(listener -> onClickLikedEventsButton());
     }
 
-    private void onClickSaveButton() {
+    private void onClickNextButton() {
 
         String eventName = name.getText().toString();
         String eventDescription = description.getText().toString();
-        String eventDate = date.getText().toString();
-        String eventTime = time.getText().toString();
 
-        RequestBodyEvent event = RequestBodyEvent.builder()
-                .name(eventName)
-                .organiserId("yo")
-                .description(eventDescription)
-                .scheduledTime(eventDate + eventTime)
-                .isAlcoholFree(alcoholFree.get())
-                .isVirtual(online.get())
-                .isInPerson(inPerson.get())
-                .build();
+        boolean isAlcoholFree = alcoholFree.get();
+        boolean isVirtual = online.get();
+        boolean isInPerson = inPerson.get();
 
-        sendRequest(event);
+        CachedEvent event = CachedEvent.getInstance();
+        event.assignInitialPage(eventName, eventDescription, isAlcoholFree, isVirtual, isInPerson);
 
-        Intent intent = new Intent(this, OrganiserProfileActivity.class);
+        Intent intent = new Intent(this, CreateEventActivity2.class);
         startActivity(intent);
     }
 
