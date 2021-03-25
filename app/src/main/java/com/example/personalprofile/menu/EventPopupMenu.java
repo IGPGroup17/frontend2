@@ -45,7 +45,7 @@ public class EventPopupMenu implements PopupMenu.OnMenuItemClickListener {
         int itemId = item.getItemId();
         VolleyQueue queue = VolleyQueue.getInstance(activity.getApplicationContext());
         if (itemId == R.id.popup_like_event) {
-
+            Log.d("popup", "liking event");
             String url = buildUrl("like");
             queue.addRequest(new JsonObjectRequest(Request.Method.PUT, url, null,
                     response -> Toast.makeText(activity.getApplicationContext(), "Liked event!", Toast.LENGTH_SHORT).show(),

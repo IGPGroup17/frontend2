@@ -1,6 +1,8 @@
 package com.example.personalprofile.views;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,19 +10,30 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.personalprofile.AppUser;
 import com.example.personalprofile.R;
+import com.example.personalprofile.http.VolleyQueue;
 import com.example.personalprofile.menu.EventPopupMenu;
 import com.example.personalprofile.models.Event;
+import com.example.personalprofile.repositories.StudentRepository;
+import com.example.personalprofile.repositories.meta.RepositoryConstants;
+import com.example.personalprofile.util.JSONArrayUtil;
 import com.example.personalprofile.util.TimeUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.json.JSONException;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import lombok.Getter;
 
@@ -82,12 +95,17 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         return new ViewHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setOnClickListener(listener -> onClick(listener, position));
         Event event = events.get(position);
 
         Log.d("event", new GsonBuilder().setPrettyPrinting().create().toJson(event));
+
+        if (hasUserLikedEvent(event.getEventId())) {
+            holder.getCardView().setCardBackgroundColor(Color.GREEN);
+        }
 
         cardPositionToEventIdMap.put(position, event.getEventId());
 
@@ -112,5 +130,20 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
     @Override
     public int getItemCount() {
         return events.size();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private boolean hasUserLikedEvent(String eventId) {
+        AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+        VolleyQueue.getInstance(activity.getApplicationContext()).addRequest(new JsonObjectRequest(Request.Method.GET, RepositoryConstants.STUDENT_ENDPOINT + AppUser.getInstance().getGoogleId(), null, response -> {
+            try {
+                List<String> list = JSONArrayUtil.toList(response.getJSONArray("likedEvents"), String.class);
+                Log.d("list", String.join(", ", list));
+                atomicBoolean.set(list.contains(eventId));
+            } catch (JSONException exception) {
+                exception.printStackTrace();
+            }
+        }, error -> {}));
+        return atomicBoolean.get();
     }
 }

@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 public class NotificationContext<T> {
 
-    private String message;
+    private final String message;
 
     private final T data;
 
