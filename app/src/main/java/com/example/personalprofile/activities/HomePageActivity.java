@@ -83,7 +83,7 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
     }
 
     private void onClickSearchButton() {
-        Log.d("clicked search button", "lord i want to die");
+        KeyboardUtil.hideKeyboard(this);
         EventSearchContext options = EventSearchContext.builder()
                 .searchQuery(searchBox.getText().toString())
                 .build();

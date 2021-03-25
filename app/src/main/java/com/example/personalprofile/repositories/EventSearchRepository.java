@@ -21,6 +21,8 @@ import java.util.List;
 
 public class EventSearchRepository extends AbstractRepository<EventSearchContext, List<Event>> {
 
+
+
     public void sendRequest(ObservingActivity<List<Event>> activity, EventSearchContext options) {
         attachObserver(activity);
         Request<?> request = buildRequest(options);
@@ -34,14 +36,20 @@ public class EventSearchRepository extends AbstractRepository<EventSearchContext
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return new JsonObjectRequest(Request.Method.POST, buildUrl(options.getSearchQuery()), data, response -> {
-            Log.d("Event Repository", response.toString());
-            notifyObservers(NotificationContext.of(new ElasticSearchResponseAdapter().adapt(response)));
-            Log.d("Event Repository", "Notified " + observers.size() + " observers");
-        }, Throwable::printStackTrace);
+
+        return buildSimpleSearch(options.getSearchQuery());
+//        return new JsonObjectRequest(Request.Method.POST, buildUrl(options.getSearchQuery()), data, response -> {
+//            Log.d("Event Repository", response.toString());
+//            notifyObservers(NotificationContext.of(new ElasticSearchResponseAdapter().adapt(response)));
+//            Log.d("Event Repository", "Notified " + observers.size() + " observers");
+//        }, Throwable::printStackTrace);
     }
 
     private String buildUrl(String searchQuery) {
-        return RepositoryConstants.ELASITCSEARCH_URL + "?q=" + (searchQuery.equals("") ? "0" : searchQuery.replace(' ', '_'));
+        return RepositoryConstants.ELASITCSEARCH_URL + "?q=" + (searchQuery.equals("") ? "0" : searchQuery.replace(" ", "%20"));
+    }
+
+    private Request<?> buildSimpleSearch(String name) {
+        return new JsonObjectRequest(Request.Method.GET, buildUrl(name), null, response -> notifyObservers(NotificationContext.of(new ElasticSearchResponseAdapter().adapt(response))), Throwable::printStackTrace);
     }
 }

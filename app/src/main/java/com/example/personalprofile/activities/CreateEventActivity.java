@@ -92,10 +92,6 @@ public class CreateEventActivity extends ObservingActivity<Event> {
         startActivity(intent);
     }
 
-    private void sendRequest(RequestBodyEvent event) {
-        EventModificationRepository.getInstance().sendRequest(this, EventModificationContext.Create.of(event));
-    }
-
     @Override
     public void onNotification(NotificationContext<Event> notificationContext) {
         Log.d("CreateEvent", new GsonBuilder().setPrettyPrinting().create().toJson(notificationContext.getData()));

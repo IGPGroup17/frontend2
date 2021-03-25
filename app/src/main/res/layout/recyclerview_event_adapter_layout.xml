@@ -15,8 +15,8 @@
 
         <TextView
             android:id="@+id/eventname"
-            android:layout_width="247dp"
-            android:layout_height="24dp"
+            android:layout_width="216dp"
+            android:layout_height="23dp"
             android:text="Event Name"
             android:textSize="18sp"
             cardView:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
 
         <TextView
             android:id="@+id/datetime"
-            android:layout_width="108dp"
+            android:layout_width="178dp"
             android:layout_height="24dp"
             android:layout_marginBottom="66dp"
             android:freezesText="false"
@@ -56,8 +56,8 @@
             android:id="@+id/going_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="212dp"
-            android:layout_marginLeft="212dp"
+            android:layout_marginStart="248dp"
+            android:layout_marginLeft="248dp"
             android:text="6 Going"
             android:textSize="10sp"
             cardView:layout_constraintBottom_toBottomOf="parent"

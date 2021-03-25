@@ -1,5 +1,6 @@
 package com.example.personalprofile.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -45,6 +46,9 @@ public class CreateEventActivity2 extends ObservingActivity<Event> {
         CachedEvent.getInstance().assignSecondPage(calendarView.getDate(), timeSpinner.getSelectedItem().toString());
         EventModificationRepository.getInstance().sendRequest(this, EventModificationContext.Create.of(CachedEvent.getInstance().getEvent()));
         CachedEvent.getInstance().clear();
+
+        Intent intent = new Intent(this, OrganiserProfileActivity.class);
+        startActivity(intent);
     }
 
     @Override

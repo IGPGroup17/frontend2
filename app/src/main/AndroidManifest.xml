@@ -17,7 +17,9 @@
         <activity android:name=".activities.ReadReviewsActivity" />
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.ChatListActivity" />
-        <activity android:name=".activities.HomePageActivity" />
+        <activity android:name=".activities.HomePageActivity"
+            android:windowSoftInputMode="adjustNothing">
+        </activity>
         <activity android:name=".activities.CreateEventActivity" />
         <activity android:name=".activities.CreateAccountActivity" />
         <activity android:name=".activities.EventChatActivity" />

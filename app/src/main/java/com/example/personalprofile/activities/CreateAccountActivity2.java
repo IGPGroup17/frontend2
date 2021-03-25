@@ -41,8 +41,6 @@ public class CreateAccountActivity2 extends ObservingActivity<Student> {
         inputUniEmail = uniEmail.getText().toString();
         inputCourse = course.getText().toString();
 
-        KeyboardUtil.hideKeyboard(this);
-
         AppUser.getInstance().assignUniPage(inputUniversity, inputUniEmail, inputYear, inputCourse);
 
 
@@ -58,7 +56,6 @@ public class CreateAccountActivity2 extends ObservingActivity<Student> {
     }
 
     public void openHomePage() {
-        AppUser.getInstance().assignUniPage(inputUniversity, inputUniEmail, inputYear, inputCourse);
         Intent intent = new Intent(this, HomePageActivity.class);
         startActivity(intent);
     }
