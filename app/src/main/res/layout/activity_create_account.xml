@@ -15,51 +15,61 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/editTextPersonSurname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:ems="10"
-        android:hint="Surname"
+        android:hint="Name*"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
+        android:layout_below="@+id/editTextPersonName"
+        android:layout_alignStart="@+id/editTextPersonName"
+        android:layout_alignLeft="@+id/editTextPersonName"
+        android:layout_alignEnd="@+id/editTextPersonName"
+        android:layout_alignRight="@+id/editTextPersonName"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginRight="-1dp"
         android:ems="10"
         android:hint="Age"
         android:inputType="number" />
 
     <EditText
-        android:id="@+id/editTextEmailAddress"
+        android:id="@+id/editTextGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
+        android:layout_below="@+id/editTextAge"
+        android:layout_alignStart="@+id/editTextAge"
+        android:layout_alignLeft="@+id/editTextAge"
+        android:layout_alignEnd="@+id/editTextAge"
+        android:layout_alignRight="@+id/editTextAge"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginRight="-1dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Gender"
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="350dp"
+        android:layout_below="@+id/editTextGender"
+        android:layout_alignStart="@+id/editTextGender"
+        android:layout_alignLeft="@+id/editTextGender"
+        android:layout_alignEnd="@+id/editTextGender"
+        android:layout_alignRight="@+id/editTextGender"
+        android:layout_marginStart="-1dp"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Username*"
         android:inputType="textPassword" />
 
     <Button
@@ -69,26 +79,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
-        android:text="Create account" />
+        android:text="Next" />
 
     <RadioGroup
         android:layout_width="227dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp">
-
-        <RadioButton
-            android:id="@+id/radioButton_organiser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Organiser Account" />
-
-        <RadioButton
-            android:id="@+id/radioButton_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Account" />
-
-    </RadioGroup>
+        android:layout_marginTop="50dp"/>
 
 </RelativeLayout>

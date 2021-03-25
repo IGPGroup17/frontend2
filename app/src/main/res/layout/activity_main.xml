@@ -7,7 +7,7 @@
     tools:notificationContext=".activities.MainActivity">
 
     <EditText
-        android:id="@+id/editTextEmailAddress"
+        android:id="@+id/editTextGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -17,7 +17,7 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

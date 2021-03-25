@@ -34,11 +34,11 @@ public class AppUser {
                 .build();
     }
 
-    public void assignInitialPage(String userName, String realName, Integer age, String gender) {
-        initialSignupStudent.setUsername(userName);
-        initialSignupStudent.setRealName(realName);
+    public void assignInitialPage(String username, Integer age, String gender, String name) {
+        initialSignupStudent.setUsername(username);
         initialSignupStudent.setAge(age);
         initialSignupStudent.setGender(gender);
+        initialSignupStudent.setRealName(name);
     }
 
     public void assignUniPage(String uniName, String uniEmail, Integer year, String course) {
