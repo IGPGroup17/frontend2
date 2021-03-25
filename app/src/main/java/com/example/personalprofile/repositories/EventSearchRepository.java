@@ -37,12 +37,12 @@ public class EventSearchRepository extends AbstractRepository<EventSearchContext
             e.printStackTrace();
         }
 
-        return buildSimpleSearch(options.getSearchQuery());
-//        return new JsonObjectRequest(Request.Method.POST, buildUrl(options.getSearchQuery()), data, response -> {
-//            Log.d("Event Repository", response.toString());
-//            notifyObservers(NotificationContext.of(new ElasticSearchResponseAdapter().adapt(response)));
-//            Log.d("Event Repository", "Notified " + observers.size() + " observers");
-//        }, Throwable::printStackTrace);
+//        return buildSimpleSearch(options.getSearchQuery());
+        return new JsonObjectRequest(Request.Method.POST, buildUrl(options.getSearchQuery()), data, response -> {
+            Log.d("Event Repository", response.toString());
+            notifyObservers(NotificationContext.of(new ElasticSearchResponseAdapter().adapt(response)));
+            Log.d("Event Repository", "Notified " + observers.size() + " observers");
+        }, Throwable::printStackTrace);
     }
 
     private String buildUrl(String searchQuery) {

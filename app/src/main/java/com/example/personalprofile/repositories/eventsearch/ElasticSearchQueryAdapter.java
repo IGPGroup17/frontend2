@@ -18,16 +18,16 @@ public class ElasticSearchQueryAdapter implements IAdapter<EventSearchContext, J
 
     private JSONArray adaptMustOptions(EventSearchContext options) {
         JSONArray arr = new JSONArray();
-        arr.put(matchQuery("name", options.getSearchQuery()));
+        arr.put(matchQuery("message.name", options.getSearchQuery()));
 
         if (options.isAlcoholFreeEnabled())
-            arr.put(matchQuery("isAlcoholFree", options.isAlcoholFreeEnabled()));
+            arr.put(matchQuery("message.isAlcoholFree", options.isAlcoholFreeEnabled()));
 
         if (options.isVirtualEnabled())
-            arr.put(matchQuery("isVirtual", options.isVirtualEnabled()));
+            arr.put(matchQuery("message.isVirtual", options.isVirtualEnabled()));
 
         if (options.isInPersonEnabled())
-            arr.put(matchQuery("isInPerson", options.isInPersonEnabled()));
+            arr.put(matchQuery("message.isInPerson", options.isInPersonEnabled()));
         return arr;
     }
 

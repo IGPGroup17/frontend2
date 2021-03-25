@@ -43,7 +43,7 @@
             android:layout_height="24dp"
             android:layout_marginBottom="66dp"
             android:freezesText="false"
-            android:gravity="start"
+            android:gravity="end"
             android:text="DateTime"
             cardView:layout_constraintBottom_toBottomOf="@+id/interested_count"
             cardView:layout_constraintEnd_toEndOf="parent"
