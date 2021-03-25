@@ -6,4 +6,6 @@
         android:title="@string/interested" />
     <item android:id="@+id/popup_going_event"
         android:title="@string/going" />
+    <item android:id="@+id/popup_leave_review"
+        android:title="@string/leave_review" />
 </menu>

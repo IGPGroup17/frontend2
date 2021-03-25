@@ -60,7 +60,7 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
 
         this.recyclerView = findViewById(R.id.event_recycler_view);
 
-        this.adapter = new EventRecyclerViewAdapter(currentEvents);
+        this.adapter = new EventRecyclerViewAdapter(this, currentEvents);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

@@ -1,5 +1,6 @@
 package com.example.personalprofile.views;
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.personalprofile.R;
+import com.example.personalprofile.menu.EventPopupMenu;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.util.TimeUtil;
 import com.google.gson.Gson;
@@ -28,6 +30,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
     private final Map<Integer, String> cardPositionToEventIdMap;
 
+    private final Activity activity;
 
     @Getter
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -56,7 +59,8 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         }
     }
 
-    public EventRecyclerViewAdapter(List<Event> events) {
+    public EventRecyclerViewAdapter(Activity activity, List<Event> events) {
+        this.activity = activity;
         this.events = events;
         this.cardPositionToEventIdMap = initCardPosMap(events);
     }
@@ -80,7 +84,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.itemView.setOnClickListener(listener -> onClick(position));
+        holder.itemView.setOnClickListener(listener -> onClick(listener, position));
         Event event = events.get(position);
 
         Log.d("event", new GsonBuilder().setPrettyPrinting().create().toJson(event));
@@ -98,8 +102,10 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         holder.getInterestedCount().setText(interestedText);
     }
 
-    private void onClick(int position) {
+    private void onClick(View view, int position) {
         String id = cardPositionToEventIdMap.get(position);
+        EventPopupMenu popupMenu = new EventPopupMenu(activity, view, id);
+        popupMenu.show();
         Log.d("id", id);
     }
 

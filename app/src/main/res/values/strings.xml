@@ -31,8 +31,9 @@
     <string name="login_failed">login failed</string>
     <string name="invalid_username">username invalid</string>
     <string name="invalid_password"><![CDATA[password is invalid >5]]></string>
-    <string name="like">Like</string>
-    <string name="interested">Interested</string>
+    <string name="like">Like Event</string>
+    <string name="interested">Show Interest</string>
     <string name="going">Going</string>
     <string name="save">Save</string>
+    <string name="leave_review">Leave Review</string>
 </resources>
