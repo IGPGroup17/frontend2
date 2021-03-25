@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -34,17 +37,39 @@ public class CreateEventActivity extends ObservingActivity<Event> {
 
     private EditText time;
 
-    private AtomicBoolean isAlcoholFree;
+    private CheckBox isAlcoholFree;
 
-    private AtomicBoolean isVirtual;
+    private CheckBox isVirtual;
 
-    private AtomicBoolean isInPerson;
+    private CheckBox isInPerson;
 
+    AtomicBoolean alcoholFree = new AtomicBoolean(false);
+
+    AtomicBoolean inPerson = new AtomicBoolean(false);
+
+    AtomicBoolean online = new AtomicBoolean(false);
+
+    /* final EditText edit =  (EditText) findViewById(R.id.text_xyz);
+        edit.getText().tostring();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__event);
+
+        name = (EditText) findViewById(R.id.editEventName);
+        description = (EditText) findViewById(R.id.editDescription);
+        date = (EditText) findViewById(R.id.editTextDate);
+        time = (EditText) findViewById(R.id.editTextTime);
+
+        isAlcoholFree = findViewById(R.id.alcoholFreeCheck);
+        isAlcoholFree.setOnClickListener(v -> alcoholFree.set(isAlcoholFree.isChecked()));
+
+        isInPerson = findViewById(R.id.inPersonCheck);
+        isInPerson.setOnClickListener(v -> inPerson.set(isInPerson.isChecked()));
+
+        isVirtual = findViewById(R.id.onlineCheck);
+        isVirtual.setOnClickListener(v -> online.set(isVirtual.isChecked()));
 
         findViewById(R.id.save).setOnClickListener(listener -> onClickSaveButton());
 
@@ -54,14 +79,19 @@ public class CreateEventActivity extends ObservingActivity<Event> {
 
     private void onClickSaveButton() {
 
+        String eventName = name.getText().toString();
+        String eventDescription = description.getText().toString();
+        String eventDate = date.getText().toString();
+        String eventTime = time.getText().toString();
+
         RequestBodyEvent event = RequestBodyEvent.builder()
-                .name("blah")
-                .organiserId(AppUser.getInstance().getGoogleId())
-                .description("thingz")
-                .scheduledTime("whatever man just put a time here lmao")
-                .isAlcoholFree(false)
-                .isVirtual(false)
-                .isInPerson(false)
+                .name(eventName)
+                .organiserId("yo")
+                .description(eventDescription)
+                .scheduledTime(eventDate + eventTime)
+                .isAlcoholFree(alcoholFree.get())
+                .isVirtual(online.get())
+                .isInPerson(inPerson.get())
                 .build();
 
         sendRequest(event);

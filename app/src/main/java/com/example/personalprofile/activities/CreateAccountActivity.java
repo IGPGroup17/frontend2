@@ -11,14 +11,14 @@ import com.example.personalprofile.R;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
-    private EditText name, surname, age, email, password;
+    private EditText username, surname, age, email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        name = findViewById(R.id.editTextPersonName);
+        username = findViewById(R.id.editTextPersonName);
         surname = findViewById(R.id.editTextPersonSurname);
         age = findViewById(R.id.editTextAge);
         email = findViewById(R.id.editTextEmailAddress);
@@ -29,7 +29,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     private void onClickCreateAccountButton() {
-        String inputName = name.getText().toString();
+        String inputName = username.getText().toString();
         String inputSurname = surname.getText().toString();
         String inputAge = age.getText().toString();
         String inputEmail = email.getText().toString();
