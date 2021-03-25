@@ -8,6 +8,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.models.Event;
@@ -15,6 +18,8 @@ import com.example.personalprofile.repositories.EventSearchRepository;
 import com.example.personalprofile.repositories.context.EventSearchContext;
 import com.example.personalprofile.repositories.eventsearch.EventSortingComparatorFactory;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
+import com.example.personalprofile.util.KeyboardUtil;
+import com.example.personalprofile.views.EventRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,6 +36,12 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
 
     private EventSearchRepository repository;
 
+    private RecyclerView recyclerView;
+
+    private EventRecyclerViewAdapter adapter;
+
+    private List<Event> currentEvents = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +57,13 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
         findViewById(R.id.personalprofile).setOnClickListener(listener -> onClickPersonalProfileButton());
         findViewById(R.id.chatbutton).setOnClickListener(v -> onClickChatButton());
         findViewById(R.id.likedevents).setOnClickListener(v -> onClickLikedEventsButton());
+
+        this.recyclerView = findViewById(R.id.event_recycler_view);
+
+        this.adapter = new EventRecyclerViewAdapter(currentEvents);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
     }
 
     private void createSortSpinner() {
@@ -70,6 +88,7 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
                 .searchQuery(searchBox.getText().toString())
                 .build();
         repository.sendRequest(this, options);
+        KeyboardUtil.hideKeyboard(this);
     }
 
     public void onClickPersonalProfileButton() {
@@ -92,8 +111,10 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
         List<Event> events = new ArrayList<>(notificationContext.getData());
         Log.d("matches", "" + events.size());
 
-        EventSortingComparatorFactory.Strategy sortStrategy = EventSortingComparatorFactory.getStrategyFrom(sortSpinner.getSelectedItem().toString());
-        sort(events, sortStrategy);
+        this.currentEvents.clear();
+        this.currentEvents.addAll(events);
+
+        adapter.notifyDataSetChanged();
 
 
         Toast.makeText(HomePageActivity.this, "Matches: " + notificationContext.getData().size(), Toast.LENGTH_LONG).show();

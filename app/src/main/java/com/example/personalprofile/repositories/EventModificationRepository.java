@@ -19,7 +19,6 @@ public class EventModificationRepository extends AbstractRepository<EventModific
 
     // private to stop init outside of class - use getInstance();
     private EventModificationRepository() {
-
     }
 
     public static EventModificationRepository getInstance() {
