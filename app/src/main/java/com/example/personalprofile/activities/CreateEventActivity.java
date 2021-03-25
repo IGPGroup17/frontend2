@@ -1,27 +1,17 @@
 package com.example.personalprofile.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.Switch;
-import android.widget.TextView;
 
-import com.example.personalprofile.AppUser;
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.models.requestbody.RequestBodyEvent;
 import com.example.personalprofile.repositories.EventModificationRepository;
-import com.example.personalprofile.repositories.StudentRepository;
 import com.example.personalprofile.repositories.context.EventModificationContext;
-import com.example.personalprofile.repositories.context.StudentCrudContext;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 import com.google.gson.GsonBuilder;
 

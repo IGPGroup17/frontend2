@@ -2,14 +2,20 @@ package com.example.personalprofile;
 
 import android.app.Activity;
 
+import com.example.personalprofile.models.requestbody.RequestBodyStudent;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.Task;
+
+import lombok.Getter;
 
 public class AppUser {
 
     private static AppUser instance;
 
+    private final RequestBodyStudent initialSignupStudent;
+
+    @Getter
     private final GoogleSignInAccount account;
 
     private final GoogleSignInClient client;
@@ -17,6 +23,29 @@ public class AppUser {
     private AppUser(GoogleSignInClient client, GoogleSignInAccount account) {
         this.client = client;
         this.account = account;
+        this.initialSignupStudent = createInitialSignupStudent(account);
+
+    }
+
+    private RequestBodyStudent createInitialSignupStudent(GoogleSignInAccount account) {
+        return RequestBodyStudent.builder()
+                .studentId(account.getId())
+                .email(account.getEmail())
+                .build();
+    }
+
+    public void assignInitialPage(String userName, String realName, Integer age, String gender) {
+        initialSignupStudent.setUsername(userName);
+        initialSignupStudent.setRealName(realName);
+        initialSignupStudent.setAge(age);
+        initialSignupStudent.setGender(gender);
+    }
+
+    public void assignUniPage(String uniName, String uniEmail, Integer year, String course) {
+        initialSignupStudent.setUniversityName(uniName);
+        initialSignupStudent.setUniversityEmail(uniEmail);
+        initialSignupStudent.setYear(year);
+        initialSignupStudent.setCourse(course);
     }
 
     public static void init(GoogleSignInClient client, GoogleSignInAccount account) {
