@@ -26,9 +26,7 @@ import java.util.Objects;
 
 public class LoginActivity extends ObservingActivity<Student> {
 
-    private final GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build();
+    private GoogleSignInOptions googleSignInOptions;
 
     private GoogleSignInClient client;
 
@@ -38,6 +36,10 @@ public class LoginActivity extends ObservingActivity<Student> {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+         this.googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
 
         this.client = GoogleSignIn.getClient(this, googleSignInOptions);
         this.account = GoogleSignIn.getLastSignedInAccount(this);
