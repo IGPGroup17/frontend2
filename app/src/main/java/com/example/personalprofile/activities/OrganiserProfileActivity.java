@@ -23,7 +23,7 @@ public class OrganiserProfileActivity extends ObservingActivity<Student> {
 
         findViewById(R.id.homebutton).setOnClickListener(v -> openHomePage());
 
-        findViewById(R.id.update_event).setOnClickListener(v -> openCreateEvent());
+        findViewById(R.id.remove_event).setOnClickListener(v -> openRemoveEvent());
 
         findViewById(R.id.read_reviews).setOnClickListener(v -> openReadReviews());
 
@@ -46,6 +46,11 @@ public class OrganiserProfileActivity extends ObservingActivity<Student> {
 
     public void openCreateEvent() {
         Intent intent = new Intent(this, CreateEventActivity.class);
+        startActivity(intent);
+    }
+
+    public void openRemoveEvent() {
+        Intent intent = new Intent(this, RemoveEventActivity.class);
         startActivity(intent);
     }
 

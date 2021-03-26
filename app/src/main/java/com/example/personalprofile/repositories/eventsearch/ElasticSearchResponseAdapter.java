@@ -34,7 +34,7 @@ public class ElasticSearchResponseAdapter implements IAdapter<JSONObject, List<E
 
     private Event getEventFrom(JSONObject object) throws JSONException {
         return Event.builder()
-                .eventId(object.getString("eventId"))
+                .eventID(object.getString("eventId"))
                 .scheduledTime(object.getString("scheduledTime"))
                 .organiserId(object.getString("organiserId"))
                 .goingUsersIDs(JSONArrayUtil.toList(object.getJSONArray("goingUserIds"), String.class))

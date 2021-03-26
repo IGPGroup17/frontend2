@@ -37,4 +37,5 @@
     <string name="save">Save</string>
     <string name="leave_review">Leave Review</string>
     <string name="read_reviews">Read Reviews</string>
+    <string name="create_event">Create event</string>
 </resources>

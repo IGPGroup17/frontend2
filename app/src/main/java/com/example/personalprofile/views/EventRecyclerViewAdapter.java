@@ -110,7 +110,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
         Log.d("event", new GsonBuilder().setPrettyPrinting().create().toJson(event));
 
-        if (hasUserLikedEvent(event.getEventId())) {
+        if (hasUserLikedEvent(event.getEventID())) {
             holder.getCardView().setCardBackgroundColor(Color.GREEN);
         }
 

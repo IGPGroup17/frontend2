@@ -82,6 +82,6 @@ public class EventPopupMenu implements PopupMenu.OnMenuItemClickListener {
     }
 
     private String buildUrl(String endpoint) {
-        return RepositoryConstants.STUDENT_ENDPOINT + endpoint + "/" + AppUser.getInstance().getGoogleId() + "/" + event.getEventId();
+        return RepositoryConstants.STUDENT_ENDPOINT + endpoint + "/" + AppUser.getInstance().getGoogleId() + "/" + event.getEventID();
     }
 }
