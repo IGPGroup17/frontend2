@@ -13,7 +13,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Review {
 
-    private String eventId;
+    private String organiserId;
+
+    private String eventName;
+
+    private String reviewerName;
 
     private int rating;
 

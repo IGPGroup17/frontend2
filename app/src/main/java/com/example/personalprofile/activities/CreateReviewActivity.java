@@ -1,4 +1,4 @@
 package com.example.personalprofile.activities;
 
-public class CreateReviewActivity  {
+public class CreateReviewActivity {
 }
