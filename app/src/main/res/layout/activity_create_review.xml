@@ -8,6 +8,20 @@
 
 
     <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="413dp"
+        android:layout_height="64dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Leave Review"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001" />
+
+    <EditText
         android:id="@+id/activity_review_description"
         android:layout_width="wrap_content"
         android:layout_height="181dp"
