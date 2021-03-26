@@ -3,6 +3,7 @@ package com.example.personalprofile.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
+import com.example.personalprofile.menu.EventPopupMenu;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.EventSearchRepository;
 import com.example.personalprofile.repositories.context.EventSearchContext;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class HomePageActivity extends ObservingActivity<List<Event>> {
 
@@ -39,6 +42,11 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
     private RecyclerView recyclerView;
 
     private EventRecyclerViewAdapter adapter;
+
+    private EventRecyclerViewAdapter.OnClick onClick = (view, event) -> {
+        EventPopupMenu popupMenu = new EventPopupMenu(this, view, event);
+        popupMenu.show();
+    };
 
     private final List<Event> currentEvents = new ArrayList<>();
 
@@ -60,7 +68,7 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
 
         this.recyclerView = findViewById(R.id.event_recycler_view);
 
-        this.adapter = new EventRecyclerViewAdapter(this, currentEvents);
+        this.adapter = new EventRecyclerViewAdapter(this, currentEvents, onClick);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

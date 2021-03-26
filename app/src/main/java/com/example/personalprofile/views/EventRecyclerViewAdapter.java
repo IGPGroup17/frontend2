@@ -2,7 +2,6 @@ package com.example.personalprofile.views;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,7 +17,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.personalprofile.AppUser;
 import com.example.personalprofile.R;
 import com.example.personalprofile.http.VolleyQueue;
-import com.example.personalprofile.menu.EventPopupMenu;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.meta.RepositoryConstants;
 import com.example.personalprofile.util.JSONArrayUtil;
@@ -31,7 +28,6 @@ import org.json.JSONException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import lombok.Getter;
@@ -43,6 +39,15 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
     private final Map<Integer, Event> cardPositionToEventIdMap;
 
     private final Activity activity;
+
+    private final OnClick onClick;
+
+    @FunctionalInterface
+    public interface OnClick {
+
+        OnClick EMPTY = ((view, event) -> {});
+        void onClick(View view, Event event);
+    }
 
     @Getter
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -74,9 +79,10 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         }
     }
 
-    public EventRecyclerViewAdapter(Activity activity, List<Event> events) {
+    public EventRecyclerViewAdapter(Activity activity, List<Event> events, OnClick onClick) {
         this.activity = activity;
         this.events = events;
+        this.onClick = onClick;
         this.cardPositionToEventIdMap = initCardPosMap(events);
     }
 
@@ -99,7 +105,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.itemView.setOnClickListener(listener -> onClick(listener, position));
+        holder.itemView.setOnClickListener(listener -> onClick.onClick(listener, cardPositionToEventIdMap.get(position)));
         Event event = events.get(position);
 
         Log.d("event", new GsonBuilder().setPrettyPrinting().create().toJson(event));
@@ -134,12 +140,6 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
             builder.append("Virtual");
 
         return builder.toString();
-    }
-
-    private void onClick(View view, int position) {
-        Event event = Objects.requireNonNull(cardPositionToEventIdMap.get(position));
-        EventPopupMenu popupMenu = new EventPopupMenu(activity, view, event);
-        popupMenu.show();
     }
 
     @Override

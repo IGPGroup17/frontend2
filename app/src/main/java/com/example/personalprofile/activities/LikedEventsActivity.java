@@ -46,7 +46,7 @@ public class LikedEventsActivity extends AppCompatActivity {
         initCurrentEvents();
         this.recyclerView = findViewById(R.id.event_recycler_view);
 
-        this.adapter = new EventRecyclerViewAdapter(this, currentEvents);
+        this.adapter = new EventRecyclerViewAdapter(this, currentEvents, EventRecyclerViewAdapter.OnClick.EMPTY);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
