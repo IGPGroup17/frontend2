@@ -82,6 +82,11 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        EventSearchContext options = EventSearchContext.builder()
+                .searchQuery("")
+                .build();
+        repository.sendRequest(this, options);
     }
 
     private void createSortSpinner() {
