@@ -8,6 +8,8 @@ import com.example.personalprofile.AppUser;
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.models.Student;
+import com.example.personalprofile.repositories.StudentModificationRepository;
+import com.example.personalprofile.repositories.context.StudentModificationContext;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 import com.google.gson.GsonBuilder;
 
@@ -35,8 +37,14 @@ public class OrganiserProfileActivity extends ObservingActivity<Student> {
     }
 
     public void openLoginPage() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        AppUser.getInstance().signOutTask().addOnCompleteListener(this, complete -> {
+            AppUser.getInstance().revokeAccess().addOnCompleteListener(this, complete2 -> {
+                StudentModificationRepository.getInstance().sendRequest(this, StudentModificationContext.Delete.of(AppUser.getInstance().getGoogleId()));
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+            });
+        });
+
     }
 
     public void openHomePage() {

@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.personalprofile.AppUser;
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.models.Student;
-import com.example.personalprofile.repositories.StudentRepository;
-import com.example.personalprofile.repositories.context.StudentCrudContext;
+import com.example.personalprofile.repositories.StudentModificationRepository;
+import com.example.personalprofile.repositories.context.StudentModificationContext;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -70,7 +68,7 @@ public class LoginActivity extends ObservingActivity<Student> {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             AppUser.init(client, account);
 
-            StudentRepository.getInstance().sendRequest(this, StudentCrudContext.Read.of(Objects.requireNonNull(account).getId()));
+            StudentModificationRepository.getInstance().sendRequest(this, StudentModificationContext.Read.of(Objects.requireNonNull(account).getId()));
 
             Log.d("Login", Objects.requireNonNull(account).getId());
         } catch (ApiException e) {

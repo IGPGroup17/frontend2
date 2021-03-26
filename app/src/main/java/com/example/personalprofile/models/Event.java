@@ -21,7 +21,7 @@ public class Event {
 
     private String description;
 
-    private String organiserId;
+    private String organiserID;
 
     private List<String> goingUsersIDs;
 

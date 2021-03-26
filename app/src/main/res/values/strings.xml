@@ -10,8 +10,10 @@
 
     <string-array name="sort">
         <item>Sort</item>
-        <item>Type</item>
-        <item>Location</item>
+        <item>Alphabetically (A - Z)</item>
+        <item>Alphabetically (Z - A)</item>
+        <item>Likes (Most - Least)</item>
+        <item>Likes (Least - Most)</item>
         <item>Date</item>
     </string-array>
     <string name="title_activity_event_details">EventDetails</string>

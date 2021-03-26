@@ -24,10 +24,6 @@ public class CreateEventActivity extends ObservingActivity<Event> {
 
     private EditText description;
 
-    private EditText date;
-
-    private EditText time;
-
     private CheckBox isAlcoholFree;
 
     private CheckBox isVirtual;

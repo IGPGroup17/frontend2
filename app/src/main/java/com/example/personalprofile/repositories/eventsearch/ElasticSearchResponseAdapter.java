@@ -36,7 +36,7 @@ public class ElasticSearchResponseAdapter implements IAdapter<JSONObject, List<E
         return Event.builder()
                 .eventID(object.getString("eventId"))
                 .scheduledTime(object.getString("scheduledTime"))
-                .organiserId(object.getString("organiserId"))
+                .organiserID(object.getString("organiserId"))
                 .goingUsersIDs(JSONArrayUtil.toList(object.getJSONArray("goingUserIds"), String.class))
                 .interestedUsersIDs(JSONArrayUtil.toList(object.getJSONArray("interestedUserIds"), String.class))
                 .name(object.getString("name"))

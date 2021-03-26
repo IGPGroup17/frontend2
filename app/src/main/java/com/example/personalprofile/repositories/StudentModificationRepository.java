@@ -10,7 +10,7 @@ import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.http.VolleyQueue;
 import com.example.personalprofile.models.Student;
 import com.example.personalprofile.models.requestbody.RequestBodyStudent;
-import com.example.personalprofile.repositories.context.StudentCrudContext;
+import com.example.personalprofile.repositories.context.StudentModificationContext;
 import com.example.personalprofile.repositories.meta.AbstractRepository;
 import com.example.personalprofile.repositories.meta.RepositoryConstants;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
@@ -18,36 +18,43 @@ import com.example.personalprofile.repositories.meta.observer.NotificationContex
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class StudentRepository extends AbstractRepository<StudentCrudContext, Student> {
+public class StudentModificationRepository extends AbstractRepository<StudentModificationContext, Student> {
 
-    private static StudentRepository instance;
+    private static StudentModificationRepository instance;
 
-    private StudentRepository() {
+    private StudentModificationRepository() {
     }
 
-    public static StudentRepository getInstance() {
+    public static StudentModificationRepository getInstance() {
         if (instance == null) {
-            instance = new StudentRepository();
+            instance = new StudentModificationRepository();
         }
 
         return instance;
     }
 
     @Override
-    public void sendRequest(ObservingActivity<Student> activity, StudentCrudContext context) {
+    public void sendRequest(ObservingActivity<Student> activity, StudentModificationContext context) {
         attachObserver(activity);
         VolleyQueue queue = VolleyQueue.getInstance(activity.getApplicationContext());
 
         try {
-            if (context instanceof StudentCrudContext.Create) {
-                queue.addRequest(buildCreateRequest(((StudentCrudContext.Create) context).getStudent()));
-            } else if (context instanceof StudentCrudContext.Read) {
-                queue.addRequest(buildReadRequest(((StudentCrudContext.Read) context).getStudentId()));
+            if (context instanceof StudentModificationContext.Create) {
+                queue.addRequest(buildCreateRequest(((StudentModificationContext.Create) context).getStudent()));
+            } else if (context instanceof StudentModificationContext.Read) {
+                queue.addRequest(buildReadRequest(((StudentModificationContext.Read) context).getStudentId()));
+            } else if (context instanceof StudentModificationContext.Delete) {
+                queue.addRequest(buildDeleteRequest((StudentModificationContext.Delete) context));
             }
 
         } catch (JSONException exception) {
             exception.printStackTrace();
         }
+    }
+
+    private Request<?> buildDeleteRequest(StudentModificationContext.Delete context) {
+        String url = RepositoryConstants.STUDENT_ENDPOINT + context.getStudentId();
+        return new JsonObjectRequest(Request.Method.DELETE, url, null, response -> {}, Throwable::printStackTrace);
     }
 
     private Request<?> buildReadRequest(String studentId) {

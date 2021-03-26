@@ -19,7 +19,8 @@ public class CachedEvent {
     private static CachedEvent instance;
 
     private CachedEvent() {
-        this.event = RequestBodyEvent.builder().organiserId(AppUser.getInstance().getGoogleId()).build();
+        Log.d("id", AppUser.getInstance().getGoogleId());
+        this.event = RequestBodyEvent.builder().organiserId(AppUser.getInstance().getStudent().getStudentId()).build();
     }
 
     public static CachedEvent getInstance() {
@@ -50,6 +51,6 @@ public class CachedEvent {
     }
 
     public void clear() {
-        this.event = RequestBodyEvent.builder().organiserId(AppUser.getInstance().getGoogleId()).build();
+        this.event = RequestBodyEvent.builder().organiserId(AppUser.getInstance().getStudent().getStudentId()).build();
     }
 }

@@ -117,7 +117,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         cardPositionToEventIdMap.put(position, event);
 
         String goingText = event.getGoingUsersIDs().size() + " Going";
-        String interestedText = event.getInterestedUsersIDs().size() + " Interested";
+        String interestedText = event.getLikes() + " Likes";
         String tagsText = buildTagText(event);
 
         holder.getTags().setText(tagsText);
@@ -133,11 +133,11 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
     private String buildTagText(Event event) {
         StringBuilder builder = new StringBuilder();
         if (event.isAlcoholFree())
-            builder.append("Alcohol-Free");
+            builder.append("Alcohol-Free").append("  ");
         if (event.isInPerson())
-            builder.append("In-Person");
+            builder.append("In-Person").append("  ");
         if (event.isVirtual())
-            builder.append("Virtual");
+            builder.append("Virtual").append("  ");
 
         return builder.toString();
     }

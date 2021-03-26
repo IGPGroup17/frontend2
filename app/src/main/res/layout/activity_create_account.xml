@@ -70,7 +70,8 @@
         android:layout_marginRight="1dp"
         android:ems="10"
         android:hint="Username*"
-        android:inputType="textPassword" />
+
+        />
 
     <Button
         android:id="@+id/create_account_next"
