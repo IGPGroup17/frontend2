@@ -32,4 +32,10 @@ public class Event {
     private String state;
 
     private String scheduledTime;
+
+    private boolean isAlcoholFree;
+
+    private boolean isVirtual;
+
+    private boolean isInPerson;
 }

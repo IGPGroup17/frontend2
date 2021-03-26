@@ -15,7 +15,7 @@ public class NotificationContext<T> {
     }
 
     public static <T> NotificationContext<T> of(T data) {
-        return new NotificationContext<T>("", data);
+        return new NotificationContext<>("", data);
     }
 
 

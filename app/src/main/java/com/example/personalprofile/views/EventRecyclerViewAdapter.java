@@ -21,11 +21,9 @@ import com.example.personalprofile.R;
 import com.example.personalprofile.http.VolleyQueue;
 import com.example.personalprofile.menu.EventPopupMenu;
 import com.example.personalprofile.models.Event;
-import com.example.personalprofile.repositories.StudentRepository;
 import com.example.personalprofile.repositories.meta.RepositoryConstants;
 import com.example.personalprofile.util.JSONArrayUtil;
 import com.example.personalprofile.util.TimeUtil;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONException;
@@ -50,6 +48,8 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
         private final CardView cardView;
 
+        private final TextView tags;
+
         private final TextView eventName;
 
         private final TextView eventDescription;
@@ -64,9 +64,10 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
             super(itemView);
 
             this.cardView = itemView.findViewById(R.id.carView);
-            this.eventName = itemView.findViewById(R.id.eventname);
+            this.eventName = itemView.findViewById(R.id.name);
+            this.tags = itemView.findViewById(R.id.event_tags);
             this.eventDescription = itemView.findViewById(R.id.description);
-            this.dateTime = itemView.findViewById(R.id.datetime);
+            this.dateTime = itemView.findViewById(R.id.date);
             this.goingCount = itemView.findViewById(R.id.going_count);
             this.interestedCount = itemView.findViewById(R.id.interested_count);
         }
@@ -111,6 +112,9 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
         String goingText = event.getGoingUsersIDs().size() + " Going";
         String interestedText = event.getInterestedUsersIDs().size() + " Interested";
+        String tagsText = buildTagText(event);
+
+        holder.getTags().setText(tagsText);
 
         holder.getEventName().setText(event.getName());
         holder.getEventDescription().setText(event.getDescription());
@@ -118,6 +122,18 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
         holder.getGoingCount().setText(goingText);
         holder.getInterestedCount().setText(interestedText);
+    }
+
+    private String buildTagText(Event event) {
+        StringBuilder builder = new StringBuilder();
+        if (event.isAlcoholFree())
+            builder.append("Alcohol-Free");
+        if (event.isInPerson())
+            builder.append("In-Person");
+        if (event.isVirtual())
+            builder.append("Virtual");
+
+        return builder.toString();
     }
 
     private void onClick(View view, int position) {

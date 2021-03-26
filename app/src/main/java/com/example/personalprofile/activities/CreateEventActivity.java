@@ -71,12 +71,17 @@ public class CreateEventActivity extends ObservingActivity<Event> {
         String eventName = name.getText().toString();
         String eventDescription = description.getText().toString();
 
-        boolean isAlcoholFree = alcoholFree.get();
-        boolean isVirtual = online.get();
-        boolean isInPerson = inPerson.get();
+        boolean alcohol = isAlcoholFree.isChecked();
+        boolean virtual = isVirtual.isChecked();
+        boolean person = isInPerson.isChecked();
+
+        Log.d("alc", "" + alcohol);
+        Log.d("vir", "" + virtual);
+        Log.d("per", "" + person);
+
 
         CachedEvent event = CachedEvent.getInstance();
-        event.assignInitialPage(eventName, eventDescription, isAlcoholFree, isVirtual, isInPerson);
+        event.assignInitialPage(eventName, eventDescription, alcohol, virtual, person);
 
         Intent intent = new Intent(this, CreateEventActivity2.class);
         startActivity(intent);

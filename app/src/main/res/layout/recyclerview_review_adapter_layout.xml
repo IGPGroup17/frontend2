@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/review_name"
             android:layout_width="216dp"
             android:layout_height="23dp"
             android:text="Event Name"
@@ -27,70 +27,57 @@
             cardView:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/description"
-            android:layout_width="393dp"
-            android:layout_height="37dp"
+            android:id="@+id/review_description"
+            android:layout_width="394dp"
+            android:layout_height="47dp"
             android:text="Description"
             cardView:layout_constraintBottom_toBottomOf="parent"
             cardView:layout_constraintEnd_toEndOf="parent"
             cardView:layout_constraintHorizontal_bias="0.0"
             cardView:layout_constraintStart_toStartOf="parent"
-            cardView:layout_constraintTop_toTopOf="parent" />
+            cardView:layout_constraintTop_toTopOf="parent"
+            cardView:layout_constraintVertical_bias="0.952" />
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/review_creationdate"
             android:layout_width="178dp"
             android:layout_height="24dp"
-            android:layout_marginBottom="66dp"
             android:freezesText="false"
             android:gravity="end"
             android:text="DateTime"
-            cardView:layout_constraintBottom_toBottomOf="@+id/interested_count"
             cardView:layout_constraintEnd_toEndOf="parent"
             cardView:layout_constraintHorizontal_bias="1.0"
             cardView:layout_constraintStart_toStartOf="@+id/review_name"
-            cardView:layout_constraintTop_toTopOf="parent"
-            cardView:layout_constraintVertical_bias="0.0" />
+            cardView:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/going_count"
+            android:id="@+id/review_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="248dp"
-            android:layout_marginLeft="248dp"
-            android:text="6 Going"
-            android:textSize="10sp"
-            cardView:layout_constraintBottom_toBottomOf="parent"
-            cardView:layout_constraintStart_toStartOf="parent"
-            cardView:layout_constraintTop_toTopOf="parent"
-            cardView:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/interested_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="14 Interested"
-            android:textSize="10sp"
+            android:text="4 / 5"
+            android:textSize="12sp"
+            android:textStyle="bold"
             cardView:layout_constraintBottom_toBottomOf="parent"
             cardView:layout_constraintEnd_toEndOf="parent"
-            cardView:layout_constraintHorizontal_bias="0.907"
+            cardView:layout_constraintHorizontal_bias="0.0"
             cardView:layout_constraintStart_toStartOf="parent"
             cardView:layout_constraintTop_toTopOf="parent"
-            cardView:layout_constraintVertical_bias="1.0" />
+            cardView:layout_constraintVertical_bias="0.324" />
 
         <TextView
-            android:id="@+id/event_tags"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tags"
-            android:textSize="8sp"
-            android:textStyle="italic"
+            android:id="@+id/review_reviewername"
+            android:layout_width="176dp"
+            android:layout_height="16dp"
+            android:gravity="end"
+            android:text="Reviewer Name"
+            android:textSize="12sp"
+            android:textStyle="bold"
             cardView:layout_constraintBottom_toBottomOf="parent"
             cardView:layout_constraintEnd_toEndOf="parent"
-            cardView:layout_constraintHorizontal_bias="0.018"
+            cardView:layout_constraintHorizontal_bias="1.0"
             cardView:layout_constraintStart_toStartOf="parent"
             cardView:layout_constraintTop_toTopOf="parent"
-            cardView:layout_constraintVertical_bias="1.0" />
+            cardView:layout_constraintVertical_bias="0.337" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

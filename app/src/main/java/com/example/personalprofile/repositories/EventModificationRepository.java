@@ -1,5 +1,7 @@
 package com.example.personalprofile.repositories;
 
+import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.personalprofile.activities.meta.ObservingActivity;
@@ -59,6 +61,7 @@ public class EventModificationRepository extends AbstractRepository<EventModific
     }
 
     private Request<?> buildCreateRequest(EventModificationContext.Create context) throws JSONException {
+        Log.d("content", GSON.toJson(context.getEvent()));
         return new JsonObjectRequest(Request.Method.POST, RepositoryConstants.EVENTS_ENDPOINT, new JSONObject(GSON.toJson(context.getEvent())),
                 response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Event.class))),
                 Throwable::printStackTrace);
