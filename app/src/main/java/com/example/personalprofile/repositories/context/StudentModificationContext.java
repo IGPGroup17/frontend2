@@ -6,17 +6,23 @@ import com.example.personalprofile.repositories.meta.RequestContext;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-public interface StudentCrudContext extends RequestContext {
+public interface StudentModificationContext extends RequestContext {
 
     @Getter
     @AllArgsConstructor(staticName = "of")
-    class Create implements StudentCrudContext {
+    class Create implements StudentModificationContext {
         private final RequestBodyStudent student;
     }
 
     @Getter
     @AllArgsConstructor(staticName = "of")
-    class Read implements StudentCrudContext {
+    class Read implements StudentModificationContext {
+        private final String studentId;
+    }
+
+    @Getter
+    @AllArgsConstructor(staticName = "of")
+    class Delete implements StudentModificationContext {
         private final String studentId;
     }
 }

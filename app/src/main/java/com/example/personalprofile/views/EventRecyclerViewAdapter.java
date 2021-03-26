@@ -117,7 +117,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         cardPositionToEventIdMap.put(position, event);
 
         String goingText = event.getGoingUsersIDs().size() + " Going";
-        String interestedText = event.getInterestedUsersIDs().size() + " Interested";
+        String interestedText = event.getLikes() + " Likes";
         String tagsText = buildTagText(event);
 
         holder.getTags().setText(tagsText);

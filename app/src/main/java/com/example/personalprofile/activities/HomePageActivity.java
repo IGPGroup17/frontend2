@@ -3,7 +3,6 @@ package com.example.personalprofile.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -12,22 +11,30 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
+import com.example.personalprofile.http.VolleyQueue;
 import com.example.personalprofile.menu.EventPopupMenu;
 import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.EventSearchRepository;
+import com.example.personalprofile.repositories.StudentModificationRepository;
 import com.example.personalprofile.repositories.context.EventSearchContext;
+import com.example.personalprofile.repositories.context.StudentModificationContext;
 import com.example.personalprofile.repositories.eventsearch.EventSortingComparatorFactory;
+import com.example.personalprofile.repositories.meta.RepositoryConstants;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
 import com.example.personalprofile.util.KeyboardUtil;
 import com.example.personalprofile.views.EventRecyclerViewAdapter;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class HomePageActivity extends ObservingActivity<List<Event>> {
 
@@ -119,8 +126,18 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
         List<Event> events = new ArrayList<>(notificationContext.getData());
         Log.d("matches", "" + events.size());
 
+        List<Event> newEvents = new CopyOnWriteArrayList<>();
+
+        for (Event event : events) {
+            String id = event.getEventID();
+            VolleyQueue.getInstance(getApplicationContext()).addRequest(new JsonObjectRequest(Request.Method.GET, RepositoryConstants.EVENTS_ENDPOINT + id, null, response -> {
+                Event fetchedEvent = new Gson().fromJson(response.toString(), Event.class);
+                newEvents.add(fetchedEvent);
+            }, Throwable::printStackTrace));
+        }
+
         this.currentEvents.clear();
-        this.currentEvents.addAll(events);
+        this.currentEvents.addAll(newEvents);
 
         adapter.notifyDataSetChanged();
 

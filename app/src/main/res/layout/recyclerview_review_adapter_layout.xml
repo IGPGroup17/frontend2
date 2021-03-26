@@ -28,8 +28,8 @@
 
         <TextView
             android:id="@+id/review_description"
-            android:layout_width="387dp"
-            android:layout_height="43dp"
+            android:layout_width="358dp"
+            android:layout_height="39dp"
             android:text="Description"
             cardView:layout_constraintBottom_toBottomOf="parent"
             cardView:layout_constraintEnd_toEndOf="parent"

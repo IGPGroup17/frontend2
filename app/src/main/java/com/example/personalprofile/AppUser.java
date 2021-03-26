@@ -67,6 +67,10 @@ public class AppUser {
         return instance;
     }
 
+    public Task<Void> revokeAccess() {
+        return client.revokeAccess();
+    }
+
     public String getGoogleId() {
         return account.getId();
     }

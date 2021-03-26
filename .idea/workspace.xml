@@ -27,8 +27,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="Abstracted onClick from EventRecyclerViewAdapter">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/RemoveEventActivity.java" afterDir="false" />
+    <list default="true" id="216b771f-b37f-4c93-b4b0-100455ea04cf" name="Default Changelist" comment="removing events">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -40,16 +39,18 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/CreateAccountActivity2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/CreateAccountActivity2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/HomePageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/HomePageActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/LoginActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/OrganiserProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/activities/OrganiserProfileActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/menu/EventPopupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/menu/EventPopupMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/models/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/models/ExampleEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/models/ExampleEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/eventsearch/ElasticSearchResponseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/eventsearch/ElasticSearchResponseAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/StudentModificationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/context/StudentCrudContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/repositories/context/StudentModificationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/views/EventRecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personalprofile/views/EventRecyclerViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_profile__organiser.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_profile__organiser.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_remove_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_remove_event.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_event_adapter_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_event_adapter_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_review_adapter_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_review_adapter_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/event_popup_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/event_popup_menu.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -363,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616753502397</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="removing events">
+      <created>1616755914321</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1616755914321</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -379,7 +387,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thinking im finna just commit this allatime" />
     <MESSAGE value="More work on ElasticSearch events querying" />
     <MESSAGE value="stupid ass mistake get your shit together" />
     <MESSAGE value="kind of works?" />
@@ -404,7 +411,8 @@
     <MESSAGE value="changes" />
     <MESSAGE value="chat windows work" />
     <MESSAGE value="Abstracted onClick from EventRecyclerViewAdapter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Abstracted onClick from EventRecyclerViewAdapter" />
+    <MESSAGE value="removing events" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing events" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser" timestamp="1616753622183">
@@ -437,26 +445,26 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1065" y="441" key="AndroidProcessChooserDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1616645694097" />
-    <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616755811866">
+    <state width="2517" height="396" key="GridCell.Tab.0.bottom" timestamp="1616757843803">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1491" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1616643716917" />
-    <state width="2517" height="396" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1616755811866" />
-    <state width="2517" height="396" key="GridCell.Tab.0.center" timestamp="1616755811866">
+    <state width="2517" height="396" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1616757843803" />
+    <state width="2517" height="396" key="GridCell.Tab.0.center" timestamp="1616757843802">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1491" height="243" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1616643716917" />
-    <state width="2517" height="396" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1616755811866" />
-    <state width="2517" height="396" key="GridCell.Tab.0.left" timestamp="1616755811866">
+    <state width="2517" height="396" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1616757843802" />
+    <state width="2517" height="396" key="GridCell.Tab.0.left" timestamp="1616757843802">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1491" height="243" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1616643716917" />
-    <state width="2517" height="396" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1616755811866" />
-    <state width="2517" height="396" key="GridCell.Tab.0.right" timestamp="1616755811866">
+    <state width="2517" height="396" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1616757843802" />
+    <state width="2517" height="396" key="GridCell.Tab.0.right" timestamp="1616757843803">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1491" height="243" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1616643716917" />
-    <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616755811866" />
+    <state width="2517" height="396" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1616757843803" />
     <state x="147" y="65" key="MergeDialog" timestamp="1616644678684">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -465,11 +473,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1616645020339" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1616753503557">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1616755915664">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="523" y="253" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1616644135953" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616753503557" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1616755915664" />
     <state x="447" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616516904764">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>

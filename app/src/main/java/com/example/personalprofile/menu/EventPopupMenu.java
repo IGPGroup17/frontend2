@@ -56,11 +56,6 @@ public class EventPopupMenu implements PopupMenu.OnMenuItemClickListener {
                     response -> Toast.makeText(activity.getApplicationContext(), "Liked event!", Toast.LENGTH_SHORT).show(),
                     Throwable::printStackTrace));
 
-        } else if (itemId == R.id.popup_interested_event) {
-            String url = buildUrl("interested");
-            queue.addRequest(new JsonObjectRequest(Request.Method.PUT, url, null,
-                    response -> Toast.makeText(activity.getApplicationContext(), "Interested in event!", Toast.LENGTH_SHORT).show(),
-                    Throwable::printStackTrace));
         } else if (itemId == R.id.popup_going_event) {
             String url = buildUrl("going");
             queue.addRequest(new JsonObjectRequest(Request.Method.PUT, url, null,
