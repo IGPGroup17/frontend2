@@ -28,6 +28,9 @@ import com.example.personalprofile.repositories.meta.observer.NotificationContex
 import com.example.personalprofile.util.KeyboardUtil;
 import com.example.personalprofile.views.EventRecyclerViewAdapter;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,7 +53,7 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
 
     private EventRecyclerViewAdapter adapter;
 
-    private EventRecyclerViewAdapter.OnClick onClick = (view, event) -> {
+    private final EventRecyclerViewAdapter.OnClick onClick = (view, event) -> {
         EventPopupMenu popupMenu = new EventPopupMenu(this, view, event);
         popupMenu.show();
     };
@@ -126,20 +129,24 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
         List<Event> events = new ArrayList<>(notificationContext.getData());
         Log.d("matches", "" + events.size());
 
-        List<Event> newEvents = new CopyOnWriteArrayList<>();
+        EventSortingComparatorFactory.Strategy strategy = EventSortingComparatorFactory.getStrategyFrom(sortSpinner.getSelectedItem().toString());
+
+        this.currentEvents.clear();
 
         for (Event event : events) {
             String id = event.getEventID();
             VolleyQueue.getInstance(getApplicationContext()).addRequest(new JsonObjectRequest(Request.Method.GET, RepositoryConstants.EVENTS_ENDPOINT + id, null, response -> {
+
                 Event fetchedEvent = new Gson().fromJson(response.toString(), Event.class);
-                newEvents.add(fetchedEvent);
+                Log.d("es event", new Gson().toJson(fetchedEvent));
+
+                this.currentEvents.add(fetchedEvent);
+
+                sort(currentEvents, strategy);
+                adapter.notifyDataSetChanged();
+
             }, Throwable::printStackTrace));
         }
-
-        this.currentEvents.clear();
-        this.currentEvents.addAll(newEvents);
-
-        adapter.notifyDataSetChanged();
 
 
         Toast.makeText(HomePageActivity.this, "Matches: " + notificationContext.getData().size(), Toast.LENGTH_LONG).show();

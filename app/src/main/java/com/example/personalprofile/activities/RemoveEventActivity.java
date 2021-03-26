@@ -38,7 +38,7 @@ public class RemoveEventActivity extends ObservingActivity<Event> {
 
     private EventRecyclerViewAdapter adapter;
 
-    private EventRecyclerViewAdapter.OnClick onClick = (view, event) -> {
+    private final EventRecyclerViewAdapter.OnClick onClick = (view, event) -> {
         Log.d("event", new GsonBuilder().setPrettyPrinting().create().toJson(event));
         EventModificationRepository.getInstance().sendRequest(this, EventModificationContext.Delete.of(event.getEventID()));
     };
