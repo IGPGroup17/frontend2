@@ -28,15 +28,14 @@
 
         <TextView
             android:id="@+id/review_description"
-            android:layout_width="394dp"
-            android:layout_height="47dp"
+            android:layout_width="387dp"
+            android:layout_height="43dp"
             android:text="Description"
             cardView:layout_constraintBottom_toBottomOf="parent"
             cardView:layout_constraintEnd_toEndOf="parent"
-            cardView:layout_constraintHorizontal_bias="0.0"
             cardView:layout_constraintStart_toStartOf="parent"
             cardView:layout_constraintTop_toTopOf="parent"
-            cardView:layout_constraintVertical_bias="0.952" />
+            cardView:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/review_creationdate"

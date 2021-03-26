@@ -66,8 +66,8 @@ public class ReviewRecyclerViewAdapter extends RecyclerView.Adapter<ReviewRecycl
         }
     }
 
-    public ReviewRecyclerViewAdapter(List<Review> events) {
-        this.reviews = events;
+    public ReviewRecyclerViewAdapter(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
 

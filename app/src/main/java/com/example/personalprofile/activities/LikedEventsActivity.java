@@ -28,7 +28,7 @@ import java.util.List;
 
 public class LikedEventsActivity extends AppCompatActivity {
 
-    private List<Event> currentEvents = new ArrayList<>();
+    private final List<Event> currentEvents = new ArrayList<>();
 
     private RecyclerView recyclerView;
 

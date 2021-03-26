@@ -40,7 +40,7 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
 
     private EventRecyclerViewAdapter adapter;
 
-    private List<Event> currentEvents = new ArrayList<>();
+    private final List<Event> currentEvents = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ReadReviewsActivity extends ObservingActivity<List<Review>> {
 
-    private List<Review> currentReviews = new ArrayList<>();
+    private final List<Review> currentReviews = new ArrayList<>();
 
     private RecyclerView recyclerView;
 

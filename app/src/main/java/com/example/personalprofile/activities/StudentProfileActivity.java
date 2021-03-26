@@ -21,7 +21,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_profile_user);
 
-        button = (Button) findViewById(R.id.delete_account);
+        button = findViewById(R.id.delete_account);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -33,7 +33,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         });
 
 
-        homebutton1 =(ImageButton) findViewById(R.id.homebutton);
+        homebutton1 = findViewById(R.id.homebutton);
         homebutton1.setOnClickListener(new View.OnClickListener(){
         @Override
         public void onClick (View v){
@@ -42,7 +42,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         });
 
         ImageButton liked;
-        liked = (ImageButton) findViewById(R.id.likedevents);
+        liked = findViewById(R.id.likedevents);
         liked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +50,7 @@ public class StudentProfileActivity extends AppCompatActivity {
             }
         });
 
-        chatbut = (ImageButton) findViewById(R.id.chatbutton);
+        chatbut = findViewById(R.id.chatbutton);
         chatbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
