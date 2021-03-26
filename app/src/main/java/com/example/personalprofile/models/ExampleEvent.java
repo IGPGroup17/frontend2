@@ -8,7 +8,7 @@ public class ExampleEvent {
             .eventID("Id")
             .name("eName")
             .description("Come and do stuff")
-            .organiserId("sf239581")
+            .organiserID("sf239581")
             .goingUsersIDs(Collections.singletonList("list1"))
             .likes(4)
             .state("on")

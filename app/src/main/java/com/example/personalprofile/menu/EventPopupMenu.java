@@ -62,11 +62,11 @@ public class EventPopupMenu implements PopupMenu.OnMenuItemClickListener {
                     response -> Toast.makeText(activity.getApplicationContext(), "Going to event!", Toast.LENGTH_SHORT).show(),
                     Throwable::printStackTrace));
         } else if (itemId == R.id.popup_leave_review) {
-            CachedReview.getInstance().assignInitialContext(event.getName(), event.getOrganiserId());
+            CachedReview.getInstance().assignInitialContext(event.getName(), event.getOrganiserID());
             Intent intent = new Intent(activity, CreateReviewActivity.class);
             activity.startActivity(intent);
         } else if (itemId == R.id.popup_read_reviews) {
-            AppUser.getInstance().setCurrentReviewOrganiserId(event.getOrganiserId());
+            AppUser.getInstance().setCurrentReviewOrganiserId(event.getOrganiserID());
             Intent intent = new Intent(activity, ReadReviewsActivity.class);
             activity.startActivity(intent);
         } else {

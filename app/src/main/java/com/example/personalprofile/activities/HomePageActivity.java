@@ -22,6 +22,7 @@ import com.example.personalprofile.repositories.EventSearchRepository;
 import com.example.personalprofile.repositories.StudentModificationRepository;
 import com.example.personalprofile.repositories.context.EventSearchContext;
 import com.example.personalprofile.repositories.context.StudentModificationContext;
+import com.example.personalprofile.repositories.eventsearch.EventFilterFactory;
 import com.example.personalprofile.repositories.eventsearch.EventSortingComparatorFactory;
 import com.example.personalprofile.repositories.meta.RepositoryConstants;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
@@ -135,6 +136,7 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
         Log.d("matches", "" + events.size());
 
         EventSortingComparatorFactory.Strategy strategy = EventSortingComparatorFactory.getStrategyFrom(sortSpinner.getSelectedItem().toString());
+        EventFilterFactory.Filter filter = EventFilterFactory.getFilterFrom(filterSpinner.getSelectedItem().toString());
 
         this.currentEvents.clear();
 
@@ -145,10 +147,16 @@ public class HomePageActivity extends ObservingActivity<List<Event>> {
                 Event fetchedEvent = new Gson().fromJson(response.toString(), Event.class);
                 Log.d("es event", new Gson().toJson(fetchedEvent));
 
+
+                if (filter != null && filter.filter(fetchedEvent)) {
+                    return;
+                }
+
                 this.currentEvents.add(fetchedEvent);
 
                 sort(currentEvents, strategy);
                 adapter.notifyDataSetChanged();
+
 
             }, Throwable::printStackTrace));
         }
