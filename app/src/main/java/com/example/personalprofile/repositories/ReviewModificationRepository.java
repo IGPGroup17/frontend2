@@ -7,8 +7,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.personalprofile.Review;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.http.VolleyQueue;
-import com.example.personalprofile.models.Event;
-import com.example.personalprofile.repositories.context.EventModificationContext;
 import com.example.personalprofile.repositories.context.ReviewModificationContext;
 import com.example.personalprofile.repositories.meta.AbstractRepository;
 import com.example.personalprofile.repositories.meta.RepositoryConstants;
