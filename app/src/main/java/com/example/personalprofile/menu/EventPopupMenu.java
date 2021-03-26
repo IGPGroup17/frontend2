@@ -1,6 +1,7 @@
 package com.example.personalprofile.menu;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,21 +11,25 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.personalprofile.AppUser;
+import com.example.personalprofile.CachedReview;
 import com.example.personalprofile.R;
+import com.example.personalprofile.activities.CreateReviewActivity;
+import com.example.personalprofile.activities.ReadReviewsActivity;
 import com.example.personalprofile.http.VolleyQueue;
+import com.example.personalprofile.models.Event;
 import com.example.personalprofile.repositories.meta.RepositoryConstants;
 
 public class EventPopupMenu implements PopupMenu.OnMenuItemClickListener {
 
     private final Activity activity;
 
-    private final String eventId;
+    private final Event event;
 
     private final PopupMenu popupMenu;
 
-    public EventPopupMenu(Activity activity, View view, String eventId) {
+    public EventPopupMenu(Activity activity, View view, Event event) {
         this.activity = activity;
-        this.eventId = eventId;
+        this.event = event;
         this.popupMenu = initPopupMenu(activity, view);
     }
 
@@ -61,6 +66,14 @@ public class EventPopupMenu implements PopupMenu.OnMenuItemClickListener {
             queue.addRequest(new JsonObjectRequest(Request.Method.PUT, url, null,
                     response -> Toast.makeText(activity.getApplicationContext(), "Going to event!", Toast.LENGTH_SHORT).show(),
                     Throwable::printStackTrace));
+        } else if (itemId == R.id.popup_leave_review) {
+            CachedReview.getInstance().assignInitialContext(event.getName(), event.getOrganiserId());
+            Intent intent = new Intent(activity, CreateReviewActivity.class);
+            activity.startActivity(intent);
+        } else if (itemId == R.id.popup_read_reviews) {
+            AppUser.getInstance().setCurrentReviewOrganiserId(event.getOrganiserId());
+            Intent intent = new Intent(activity, ReadReviewsActivity.class);
+            activity.startActivity(intent);
         } else {
             return false;
         }
@@ -69,6 +82,6 @@ public class EventPopupMenu implements PopupMenu.OnMenuItemClickListener {
     }
 
     private String buildUrl(String endpoint) {
-        return RepositoryConstants.STUDENT_ENDPOINT + endpoint + "/" + AppUser.getInstance().getGoogleId() + "/" + eventId;
+        return RepositoryConstants.STUDENT_ENDPOINT + endpoint + "/" + AppUser.getInstance().getGoogleId() + "/" + event.getEventId();
     }
 }

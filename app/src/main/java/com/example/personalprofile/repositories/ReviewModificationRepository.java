@@ -4,9 +4,9 @@ import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.personalprofile.Review;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.http.VolleyQueue;
+import com.example.personalprofile.models.Review;
 import com.example.personalprofile.repositories.context.ReviewModificationContext;
 import com.example.personalprofile.repositories.meta.AbstractRepository;
 import com.example.personalprofile.repositories.meta.RepositoryConstants;
@@ -45,6 +45,7 @@ public class ReviewModificationRepository extends AbstractRepository<ReviewModif
 
             } else if (context instanceof ReviewModificationContext.Delete) {
                 queue.addRequest(buildDeleteRequest((ReviewModificationContext.Delete) context));
+            } else if (context instanceof ReviewModificationContext.ReadAll) {
             }
 
         } catch (JSONException e) {
@@ -53,7 +54,7 @@ public class ReviewModificationRepository extends AbstractRepository<ReviewModif
     }
 
     private Request<?> buildGetRequest(ReviewModificationContext.Read context) {
-        String url = RepositoryConstants.EVENTS_ENDPOINT + context.getReviewId();
+        String url = RepositoryConstants.REVIEW_ENDPOINT + context.getReviewId();
         return new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Review.class))),
                 Throwable::printStackTrace);
@@ -61,14 +62,14 @@ public class ReviewModificationRepository extends AbstractRepository<ReviewModif
 
     private Request<?> buildCreateRequest(ReviewModificationContext.Create context) throws JSONException {
         Log.d("content", GSON.toJson(context.getReview()));
-        return new JsonObjectRequest(Request.Method.POST, RepositoryConstants.EVENTS_ENDPOINT, new JSONObject(GSON.toJson(context.getReview())),
+        return new JsonObjectRequest(Request.Method.POST, RepositoryConstants.REVIEW_ENDPOINT, new JSONObject(GSON.toJson(context.getReview())),
                 response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Review.class))),
                 Throwable::printStackTrace);
     }
 
 
     private Request<?> buildDeleteRequest(ReviewModificationContext.Delete context) {
-        String url = RepositoryConstants.EVENTS_ENDPOINT + context.getReviewId();
+        String url = RepositoryConstants.REVIEW_ENDPOINT + context.getReviewId();
         return new JsonObjectRequest(Request.Method.DELETE, url, null,
                 response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Review.class))),
                 Throwable::printStackTrace);
@@ -76,7 +77,7 @@ public class ReviewModificationRepository extends AbstractRepository<ReviewModif
 
 
     private Request<?> buildUpdateRequest(ReviewModificationContext.Update context) throws JSONException {
-        return new JsonObjectRequest(Request.Method.PUT, RepositoryConstants.EVENTS_ENDPOINT, new JSONObject(GSON.toJson(context.getReview())),
+        return new JsonObjectRequest(Request.Method.PUT, RepositoryConstants.REVIEW_ENDPOINT, new JSONObject(GSON.toJson(context.getReview())),
                 response -> notifyObservers(NotificationContext.of(GSON.fromJson(response.toString(), Review.class))),
                 Throwable::printStackTrace);
     }

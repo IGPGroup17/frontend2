@@ -13,6 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Student {
 
+    private String studentId;
+
     private String username;
 
     private String email;

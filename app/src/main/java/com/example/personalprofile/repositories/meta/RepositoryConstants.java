@@ -11,4 +11,7 @@ public class RepositoryConstants {
     public static final String EVENTS_ENDPOINT = BEANSTALK_URL + "events/";
 
     public static final String STUDENT_ENDPOINT = BEANSTALK_URL + "students/";
+
+    public static final String REVIEW_ENDPOINT = BEANSTALK_URL + "reviews/";
+
 }

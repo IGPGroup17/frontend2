@@ -8,4 +8,6 @@
         android:title="@string/going" />
     <item android:id="@+id/popup_leave_review"
         android:title="@string/leave_review" />
+    <item android:id="@+id/popup_read_reviews"
+        android:title="@string/read_reviews" />
 </menu>

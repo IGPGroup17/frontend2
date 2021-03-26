@@ -1,6 +1,6 @@
 package com.example.personalprofile.repositories.context;
 
-import com.example.personalprofile.Review;
+import com.example.personalprofile.models.Review;
 import com.example.personalprofile.repositories.meta.RequestContext;
 
 import lombok.AllArgsConstructor;
@@ -29,5 +29,11 @@ public interface ReviewModificationContext extends RequestContext {
     @AllArgsConstructor(staticName = "of")
     class Update implements ReviewModificationContext {
         private final Review review;
+    }
+
+    @Getter
+    @AllArgsConstructor(staticName = "of")
+    class ReadAll implements ReviewModificationContext {
+        private final String organiserId;
     }
 }

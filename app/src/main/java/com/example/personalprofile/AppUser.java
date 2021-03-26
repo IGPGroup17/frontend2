@@ -2,12 +2,14 @@ package com.example.personalprofile;
 
 import android.app.Activity;
 
+import com.example.personalprofile.models.Student;
 import com.example.personalprofile.models.requestbody.RequestBodyStudent;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.Task;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class AppUser {
 
@@ -15,6 +17,12 @@ public class AppUser {
 
     @Getter
     private final RequestBodyStudent initialSignUpStudent;
+
+    @Getter @Setter
+    private Student student;
+
+    @Getter @Setter
+    private String currentReviewOrganiserId;
 
     @Getter
     private final GoogleSignInAccount account;

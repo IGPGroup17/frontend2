@@ -4,14 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.personalprofile.AppUser;
 import com.example.personalprofile.R;
 import com.example.personalprofile.activities.meta.ObservingActivity;
 import com.example.personalprofile.models.Student;
-import com.example.personalprofile.models.requestbody.RequestBodyStudent;
-import com.example.personalprofile.repositories.StudentRepository;
-import com.example.personalprofile.repositories.context.StudentCrudContext;
 import com.example.personalprofile.repositories.meta.observer.NotificationContext;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 
@@ -53,14 +50,13 @@ public class OrganiserProfileActivity extends ObservingActivity<Student> {
     }
 
     public void openReadReviews() {
-        StudentRepository repository = StudentRepository.getInstance();
-
-        repository.sendRequest(this, StudentCrudContext.Create.of(RequestBodyStudent.builder().studentId("1").age(1).course("penis").email("more penis").gender("helicopter").realName("i love penis").universityEmail("huge penises").universityName("wow you suck penis").username("penis").year(1).build()));
+        AppUser.getInstance().setCurrentReviewOrganiserId(AppUser.getInstance().getStudent().getStudentId());
+        Intent intent = new Intent(this, ReadReviewsActivity.class);
+        startActivity(intent);
     }
 
     public void openLikedEvents() {
-        Intent intent = new Intent(this, ReadReviewsActivity.class);
-        startActivity(intent);
+
     }
 
     public void openChatPage() {

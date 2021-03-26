@@ -12,22 +12,9 @@
         android:theme="@style/Theme.PersonalProfile.AppBarOverlay" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/event_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="370dp"
-            android:background="@android:color/white"
-            android:scrollbars="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.673"
-            tools:listitem="@layout/recyclerview_review_adapter_layout" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -96,6 +83,20 @@
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/favourites"
             tools:ignore="VectorDrawableCompat" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/review_recycler_view"
+            android:layout_width="376dp"
+            android:layout_height="501dp"
+            android:background="@android:color/white"
+            android:scrollbarAlwaysDrawHorizontalTrack="false"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/recyclerview_review_adapter_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

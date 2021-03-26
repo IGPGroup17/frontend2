@@ -62,7 +62,9 @@ public class CreateAccountActivity2 extends ObservingActivity<Student> {
 
     @Override
     public void onNotification(NotificationContext<Student> notificationContext) {
+        KeyboardUtil.hideKeyboard(this);
         Log.d("createaccount2", "received notification");
+        AppUser.getInstance().setStudent(notificationContext.getData());
         openHomePage();
     }
 }

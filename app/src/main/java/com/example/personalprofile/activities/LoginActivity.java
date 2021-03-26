@@ -86,9 +86,14 @@ public class LoginActivity extends ObservingActivity<Student> {
     @Override
     public void onNotification(NotificationContext<Student> notificationContext) {
         Log.d(notificationContext.getMessage(), new GsonBuilder().setPrettyPrinting().create().toJson(notificationContext.getData()));
-        Intent intent = notificationContext.getMessage().equals("NOT FOUND") ?
-                new Intent(this, CreateAccountActivity.class) :
-                new Intent(this, HomePageActivity.class);
+        Intent intent;
+        if (notificationContext.getMessage().equals("NOT FOUND")) {
+            intent = new Intent(this, CreateAccountActivity.class);
+        } else {
+            AppUser.getInstance().setStudent(notificationContext.getData());
+            intent = new Intent(this, HomePageActivity.class);
+        }
+
 
         startActivity(intent);
     }

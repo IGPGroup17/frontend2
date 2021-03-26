@@ -31,6 +31,7 @@ import org.json.JSONException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import lombok.Getter;
@@ -39,7 +40,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
     private final List<Event> events;
 
-    private final Map<Integer, String> cardPositionToEventIdMap;
+    private final Map<Integer, Event> cardPositionToEventIdMap;
 
     private final Activity activity;
 
@@ -79,11 +80,11 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         this.cardPositionToEventIdMap = initCardPosMap(events);
     }
 
-    private Map<Integer, String> initCardPosMap(List<Event> events) {
-        Map<Integer, String> map = new HashMap<>();
+    private Map<Integer, Event> initCardPosMap(List<Event> events) {
+        Map<Integer, Event> map = new HashMap<>();
         for (int i = 0; i < events.size(); i++) {
-            String id = events.get(i).getEventId();
-            map.put(i, id);
+            Event event = events.get(i);
+            map.put(i, event);
         }
         return map;
     }
@@ -96,7 +97,6 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         return new ViewHolder(view);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setOnClickListener(listener -> onClick(listener, position));
@@ -108,7 +108,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
             holder.getCardView().setCardBackgroundColor(Color.GREEN);
         }
 
-        cardPositionToEventIdMap.put(position, event.getEventId());
+        cardPositionToEventIdMap.put(position, event);
 
         String goingText = event.getGoingUsersIDs().size() + " Going";
         String interestedText = event.getInterestedUsersIDs().size() + " Interested";
@@ -137,10 +137,9 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
     }
 
     private void onClick(View view, int position) {
-        String id = cardPositionToEventIdMap.get(position);
-        EventPopupMenu popupMenu = new EventPopupMenu(activity, view, id);
+        Event event = Objects.requireNonNull(cardPositionToEventIdMap.get(position));
+        EventPopupMenu popupMenu = new EventPopupMenu(activity, view, event);
         popupMenu.show();
-        Log.d("id", id);
     }
 
     @Override
@@ -148,13 +147,11 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         return events.size();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private boolean hasUserLikedEvent(String eventId) {
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         VolleyQueue.getInstance(activity.getApplicationContext()).addRequest(new JsonObjectRequest(Request.Method.GET, RepositoryConstants.STUDENT_ENDPOINT + AppUser.getInstance().getGoogleId(), null, response -> {
             try {
                 List<String> list = JSONArrayUtil.toList(response.getJSONArray("likedEvents"), String.class);
-                Log.d("list", String.join(", ", list));
                 atomicBoolean.set(list.contains(eventId));
             } catch (JSONException exception) {
                 exception.printStackTrace();
